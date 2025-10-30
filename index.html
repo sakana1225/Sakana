@@ -1,13 +1,30 @@
-```
-<meta name="apple-mobile-web-app-capable" content="yes">
-<link rel="apple-touch-icon" href="https://i.postimg.cc/https://ci.xiaohongshu.com/1040g008317tlf9fe0o005pmpb60nc2rpn39bae8?imageView2/2/w/0/format/jpg">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-```
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+    <!-- 添加到主屏幕全屏设置 -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Sakana小手机">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#000000">
+    <meta name="msapplication-TileColor" content="#000000">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="application-name" content="Sakana小手机">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="HandheldFriendly" content="true">
+    
+    <!-- iOS图标 -->
+    <link rel="apple-touch-icon" href="https://tc.z.wiki/autoupload/fr/oBJ5XpnsM7iywgzz-QhaqM4ANCxnESKetcRdPZbn-GGyl5f0KlZfm6UsKj-HyTuv/20251030/r4xZ/1079X2277/IMG_1212.jpeg">
+    <link rel="apple-touch-icon" sizes="152x152" href="https://tc.z.wiki/autoupload/fr/oBJ5XpnsM7iywgzz-QhaqM4ANCxnESKetcRdPZbn-GGyl5f0KlZfm6UsKj-HyTuv/20251030/r4xZ/1079X2277/IMG_1212.jpeg">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://tc.z.wiki/autoupload/fr/oBJ5XpnsM7iywgzz-QhaqM4ANCxnESKetcRdPZbn-GGyl5f0KlZfm6UsKj-HyTuv/20251030/r4xZ/1079X2277/IMG_1212.jpeg">
+    <link rel="apple-touch-icon" sizes="167x167" href="https://tc.z.wiki/autoupload/fr/oBJ5XpnsM7iywgzz-QhaqM4ANCxnESKetcRdPZbn-GGyl5f0KlZfm6UsKj-HyTuv/20251030/r4xZ/1079X2277/IMG_1212.jpeg">
+    
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="data:application/manifest+json,%7B%22name%22%3A%22Sakana%E5%B0%8F%E6%89%8B%E6%9C%BA%22%2C%22short_name%22%3A%22Sakana%E6%89%8B%E6%9C%BA%22%2C%22description%22%3A%22%E4%B8%80%E4%B8%AA%E4%BB%BFiPhone%E7%9A%84%E5%BE%AE%E4%BF%A1%E7%95%8C%E9%9D%A2%E6%A8%A1%E6%8B%9F%E5%99%A8%22%2C%22start_url%22%3A%22%2F%22%2C%22display%22%3A%22fullscreen%22%2C%22theme_color%22%3A%22%23000000%22%2C%22background_color%22%3A%22%23000000%22%2C%22orientation%22%3A%22portrait%22%2C%22scope%22%3A%22%2F%22%2C%22icons%22%3A%5B%7B%22src%22%3A%22https%3A%2F%2Ftc.z.wiki%2Fautoupload%2Ffr%2FoBJ5XpnsM7iywgzz-QhaqM4ANCxnESKetcRdPZbn-GGyl5f0KlZfm6UsKj-HyTuv%2F20251030%2Fr4xZ%2F1079X2277%2FIMG_1212.jpeg%22%2C%22sizes%22%3A%22192x192%22%2C%22type%22%3A%22image%2Fjpeg%22%7D%2C%7B%22src%22%3A%22https%3A%2F%2Ftc.z.wiki%2Fautoupload%2Ffr%2FoBJ5XpnsM7iywgzz-QhaqM4ANCxnESKetcRdPZbn-GGyl5f0KlZfm6UsKj-HyTuv%2F20251030%2Fr4xZ%2F1079X2277%2FIMG_1212.jpeg%22%2C%22sizes%22%3A%22512x512%22%2C%22type%22%3A%22image%2Fjpeg%22%7D%5D%7D">
+    
     <title>Sakana小手机</title>
     <style>
         * {
@@ -21,15 +38,24 @@
             overflow: hidden;
             background-color: #000;
             font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+            /* 确保在iOS上全屏 */
+            height: 100vh;
+            height: -webkit-fill-available;
         }
         .iphone {
             width: 100vw;
             height: 100vh;
+            height: -webkit-fill-available;
             background-color: #111;
             border-radius: 0;
             padding: 0;
             box-shadow: none;
             position: relative;
+            /* 确保全屏模式下的定位 */
+            position: fixed;
+            top: 0;
+            left: 0;
+            overflow: hidden;
         }
         .screen {
             width: 100%;
@@ -1579,6 +1605,19 @@
             padding: 20px;
             border-top: 1px solid #f0f0f0;
         }
+
+        /* 全屏模式优化 */
+        @supports (-webkit-touch-callout: none) {
+            .iphone {
+                height: 100vh;
+                height: -webkit-fill-available;
+            }
+        }
+
+        /* 全屏模式下的状态栏优化 */
+        .standalone-mode .status-bar {
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -2180,6 +2219,24 @@
     </div>
 
     <script>
+        // 检测是否在全屏模式下运行
+        function isInStandaloneMode() {
+            return (window.matchMedia('(display-mode: standalone)').matches) || 
+                   (window.navigator.standalone) || 
+                   (document.referrer.includes('android-app://'));
+        }
+
+        // 应用全屏优化
+        if (isInStandaloneMode()) {
+            document.documentElement.classList.add('standalone-mode');
+            
+            // 隐藏状态栏区域（如果需要）
+            const statusBar = document.querySelector('.status-bar');
+            if (statusBar) {
+                statusBar.style.display = 'none';
+            }
+        }
+
         // 北京实时时间更新函数
         function updateBeijingTime() {
             const now = new Date();
@@ -3438,6 +3495,16 @@
                 e.preventDefault();
             }
         }, { passive: false });
+
+        // 防止双击缩放
+        let lastTouchEnd = 0;
+        document.addEventListener('touchend', function(event) {
+            const now = (new Date()).getTime();
+            if (now - lastTouchEnd <= 300) {
+                event.preventDefault();
+            }
+            lastTouchEnd = now;
+        }, false);
     </script>
 </body>
 </html>
