@@ -7,7 +7,7 @@
     <!-- 添加到主屏幕全屏设置 -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="Sakana小手机">
+    <meta name="apple-mobile-web-app-title" content="Sakana">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="theme-color" content="#000000">
     <meta name="msapplication-TileColor" content="#000000">
@@ -25,7 +25,7 @@
     <!-- Web App Manifest -->
     <link rel="manifest" href="data:application/manifest+json,%7B%22name%22%3A%22Sakana%E5%B0%8F%E6%89%8B%E6%9C%BA%22%2C%22short_name%22%3A%22Sakana%E6%89%8B%E6%9C%BA%22%2C%22description%22%3A%22%E4%B8%80%E4%B8%AA%E4%BB%BFiPhone%E7%9A%84%E5%BE%AE%E4%BF%A1%E7%95%8C%E9%9D%A2%E6%A8%A1%E6%8B%9F%E5%99%A8%22%2C%22start_url%22%3A%22%2F%22%2C%22display%22%3A%22fullscreen%22%2C%22theme_color%22%3A%22%23000000%22%2C%22background_color%22%3A%22%23000000%22%2C%22orientation%22%3A%22portrait%22%2C%22scope%22%3A%22%2F%22%2C%22icons%22%3A%5B%7B%22src%22%3A%22https%3A%2F%2Ftc.z.wiki%2Fautoupload%2Ffr%2FoBJ5XpnsM7iywgzz-QhaqM4ANCxnESKetcRdPZbn-GGyl5f0KlZfm6UsKj-HyTuv%2F20251030%2Fr4xZ%2F1079X2277%2FIMG_1212.jpeg%22%2C%22sizes%22%3A%22192x192%22%2C%22type%22%3A%22image%2Fjpeg%22%7D%2C%7B%22src%22%3A%22https%3A%2F%2Ftc.z.wiki%2Fautoupload%2Ffr%2FoBJ5XpnsM7iywgzz-QhaqM4ANCxnESKetcRdPZbn-GGyl5f0KlZfm6UsKj-HyTuv%2F20251030%2Fr4xZ%2F1079X2277%2FIMG_1212.jpeg%22%2C%22sizes%22%3A%22512x512%22%2C%22type%22%3A%22image%2Fjpeg%22%7D%5D%7D">
     
-    <title>Sakana小手机</title>
+    <title>Sakana</title>
     <style>
         * {
             margin: 0;
@@ -67,34 +67,8 @@
             color: white;
             transition: background-color 0.5s ease;
         }
-        .status-bar {
-            position: absolute;
-            top: 15px;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 20px;
-            font-size: 14px;
-            box-sizing: border-box;
-            z-index: 10;
-            color: #000; /* 改为黑色 */
-        }
-        .wechat-status-bar {
-            position: absolute;
-            top: 0;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 20px;
-            font-size: 14px;
-            box-sizing: border-box;
-            z-index: 10;
-            color: white;
-            background-color: rgba(0, 0, 0, 0.3);
-            display: none;
-        }
+        .status-bar{opacity:0!important;pointer-events:none!important;}
+        .wechat-status-bar{display:none!important;}
         .signal {
             display: flex;
             gap: 1.5px;
@@ -310,7 +284,8 @@
             color: white;
             font-weight: 500;
             font-size: 18px;
-            margin-top: 50px;
+            margin-top: 0;
+    padding-top: env(safe-area-inset-top);
             position: relative;
         }
         .wechat-title {
@@ -333,7 +308,8 @@
         }
         #moments-page .moments-container,
         #me-page .me-container {
-            margin-top: 50px;
+            margin-top: 0;
+    padding-top: env(safe-area-inset-top);
         }
         #moments-page .moment-item:first-child {
             margin-top: 0;
@@ -726,7 +702,8 @@
             color: white;
             font-weight: 500;
             font-size: 18px;
-            margin-top: 50px;
+            margin-top: 0;
+    padding-top: env(safe-area-inset-top);
             position: relative;
         }
         .settings-content {
@@ -883,7 +860,8 @@
             color: white;
             font-weight: 500;
             font-size: 18px;
-            margin-top: 50px;
+            margin-top: 0;
+    padding-top: env(safe-area-inset-top);
             position: relative;
         }
 
@@ -1401,30 +1379,18 @@
         .wechat-opened .wechat-page {
             transform: translateX(0);
         }
-        .wechat-opened .status-bar {
-            display: none;
-        }
-        .wechat-opened .wechat-status-bar {
-            display: flex;
-        }
+        .wechat-opened .status-bar{opacity:0!important;pointer-events:none!important;}
+        .wechat-opened .wechat-status-bar{display:none!important;}
         .wallet-opened .wallet-page {
             transform: translateX(0);
         }
-        .wallet-opened .status-bar {
-            display: none;
-        }
-        .wallet-opened .wechat-status-bar {
-            display: flex;
-        }
+        .wallet-opened .status-bar{opacity:0!important;pointer-events:none!important;}
+        .wallet-opened .wechat-status-bar{display:none!important;}
         .settings-opened .settings-page {
             transform: translateX(0);
         }
-        .settings-opened .status-bar {
-            display: none;
-        }
-        .settings-opened .wechat-status-bar {
-            display: flex;
-        }
+        .settings-opened .status-bar{opacity:0!important;pointer-events:none!important;}
+        .settings-opened .wechat-status-bar{display:none!important;}
         .slide-to-unlock:active .slide-icon {
             transform: translateX(120px);
         }
@@ -1615,12 +1581,73 @@
         }
 
         /* 全屏模式下的状态栏优化 */
-        .standalone-mode .status-bar {
-            display: none;
-        }
-    </style>
+        .standalone-mode .status-bar{opacity:0!important;pointer-events:none!important;}
+    
+/* --- 官方 SVG 图标样式 --- */
+.icon { display: block; width: 24px; height: 24px; }
+.nav-text { font-size: 12px; color: #8E8E93; margin-top: 4px; }
+
+.wechat-bottom-nav { position: absolute; bottom: 0; left: 0; width: 100%; height: 60px; background-color: white; display: flex; border-top: 1px solid #e1e1e1; z-index: 10; }
+.wechat-bottom-nav .nav-item { flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; cursor:pointer; position:relative; overflow:hidden; }
+.wechat-bottom-nav .nav-item .ripple { position:absolute; border-radius:50%; transform:scale(0); background: rgba(7,193,96,0.15); width: 10px; height: 10px; pointer-events:none; transition: transform 0.5s, opacity 0.5s; opacity:0; }
+/* active (green) */
+.nav-item.active .nav-text { color: #07C160; }
+.nav-item.active .icon path, .nav-item.active .icon circle, .nav-item.active .icon rect { stroke: #07C160 !important; fill: #07C160 !important; }
+
+/* basic tap feedback */
+.nav-item:active .ripple { transform: scale(6); opacity:1; transition: transform 0.25s, opacity 0.4s; }
+
+
+.wechat-header, .settings-header {
+ background:#ffffff!important;
+ color:#000!important;
+ border-bottom:1px solid rgba(0,0,0,0.1);
+ height:44px;
+ display:flex;
+ align-items:center;
+ padding:0 15px;
+ box-sizing:border-box;
+}
+.wechat-opened .wechat-content{padding-top:44px!important;}
+
+
+/* Force back buttons to black */
+.wechat-back-btn,
+.wallet-back-btn {
+    color: #000 !important;
+}
+
+</style>
 </head>
 <body>
+
+<!-- SVG sprite: official-style icons (symbols) -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+  <symbol id="icon-wechat" viewBox="0 0 24 24">
+    <path d="M5 17c-1.1 0-2-.9-2-2V7c0-1.1.9-2 2-2h9c1.1 0 2 .9 2 2v3" stroke="#8E8E93" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <path d="M21 15c0 1.1-.9 2-2 2H9l-3 3v-3H6.5" stroke="#8E8E93" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <circle cx="14.5" cy="9.5" r="0.9" fill="#8E8E93"/>
+    <circle cx="10.5" cy="9.5" r="0.9" fill="#8E8E93"/>
+  </symbol>
+
+  <symbol id="icon-contacts" viewBox="0 0 24 24">
+    <rect x="3" y="4" width="14" height="16" rx="2" stroke="#8E8E93" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <path d="M19 6h2v12h-2" stroke="#8E8E93" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <circle cx="9.5" cy="10" r="1.6" stroke="#8E8E93" stroke-width="1.6" fill="none"/>
+    <path d="M7.5 14c0-1.5 2-2.2 4-2.2s4 .7 4 2.2" stroke="#8E8E93" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  </symbol>
+
+  <symbol id="icon-discover" viewBox="0 0 24 24">
+    <circle cx="12" cy="12" r="8" stroke="#8E8E93" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <path d="M13.2 6.8L9.8 10.2l3.4 3.4 3.4-3.4L13.2 6.8z" stroke="#8E8E93" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  </symbol>
+
+  <symbol id="icon-me" viewBox="0 0 24 24">
+    <circle cx="12" cy="8.5" r="2.2" stroke="#8E8E93" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <path d="M5 19c0-3.3 3.6-5 7-5s7 1.7 7 5" stroke="#8E8E93" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  </symbol>
+</svg>
+
     <div class="iphone">
         <div class="screen" id="screen">
             <div class="status-bar">
@@ -1667,6 +1694,11 @@
                         <div class="app-icon-outer wechat-icon">💬</div>
                         <div class="app-name">微信</div>
                     </div>
+                   <!-- QQ 图标 -->
+<div class="app-icon" id="qqIcon">
+    <div class="app-icon-outer" style="background-color:#12B7F5;">🐧</div>
+    <div class="app-name">QQ</div>
+</div>
                     <div class="app-icon">
                         <div class="app-icon-outer">🎵</div>
                         <div class="app-name">音乐</div>
@@ -1754,6 +1786,9 @@
                         <div class="moments-container">
                             <div class="moment-item">
                                 <div class="moment-avatar">张</div>
+<div class="content-page" id="contacts-page"></div>
+<div class="content-page" id="discover-page"></div>
+
                                 <div class="moment-content">
                                     <div class="moment-name">张三</div>
                                     <div class="moment-text">今天的夕阳真美，分享给大家！🌅</div>
@@ -1806,11 +1841,31 @@
                     </div>
                 </div>
                 
-                <div class="wechat-bottom-nav">
-                    <div class="nav-item active" data-tab="chat">
-                        <div class="nav-icon">💬</div>
-                        <div class="nav-text">消息</div>
-                    </div>
+                
+<div class="wechat-bottom-nav">
+    <div class="nav-item active" data-tab="chat" aria-label="微信">
+        <svg class="icon" width="24" height="24" aria-hidden="true"><use href="#icon-wechat"></use></svg>
+        <div class="nav-text">微信</div>
+        <span class="ripple"></span>
+    </div>
+    <div class="nav-item" data-tab="contacts" aria-label="通讯录">
+        <svg class="icon" width="24" height="24" aria-hidden="true"><use href="#icon-contacts"></use></svg>
+        <div class="nav-text">通讯录</div>
+        <span class="ripple"></span>
+    </div>
+    <div class="nav-item" data-tab="discover" aria-label="发现">
+        <svg class="icon" width="24" height="24" aria-hidden="true"><use href="#icon-discover"></use></svg>
+        <div class="nav-text">发现</div>
+        <span class="ripple"></span>
+    </div>
+    <div class="nav-item" data-tab="me" aria-label="我">
+        <svg class="icon" width="24" height="24" aria-hidden="true"><use href="#icon-me"></use></svg>
+        <div class="nav-text">我</div>
+        <span class="ripple"></span>
+    </div>
+</div>
+
+</div>
                     <div class="nav-item" data-tab="moments">
                         <div class="nav-icon">📸</div>
                         <div class="nav-text">朋友圈</div>
@@ -1976,6 +2031,7 @@
                     </div>
                 </div>
             </div>
+
 
             <div class="settings-page" id="settingsPage">
                 <div class="wechat-status-bar">
@@ -3506,5 +3562,56 @@
             lastTouchEnd = now;
         }, false);
     </script>
+
+<script>
+// Tab switching utility
+function showPage(id){
+    document.querySelectorAll('.content-page').forEach(function(p){
+        p.classList.remove('active');
+    });
+    var page = document.getElementById(id);
+    if(page) page.classList.add('active');
+
+    // update active nav
+    document.querySelectorAll('.wechat-bottom-nav .nav-item').forEach(function(n){
+        n.classList.remove('active');
+    });
+    var nav = document.querySelector('.wechat-bottom-nav .nav-item[data-tab="'+id.replace('-page','')+'"]');
+    if(nav) nav.classList.add('active');
+}
+
+// adapt data-tab values to page IDs
+document.querySelectorAll('.wechat-bottom-nav .nav-item').forEach(function(item){
+    item.addEventListener('click', function(e){
+        var tab = item.getAttribute('data-tab');
+        // ripple effect
+        var r = item.querySelector('.ripple');
+        if(r){
+            r.style.left = (e.offsetX - 5) + 'px';
+            r.style.top = (e.offsetY - 5) + 'px';
+            r.style.opacity = '1';
+            r.style.transform = 'scale(0)';
+            setTimeout(function(){ r.style.transform = 'scale(6)'; r.style.opacity='0'; }, 10);
+        }
+        // mapping: data-tab "chat" -> "chat-page", but our elements' ids are named chat-page, contacts-page, discover-page, me-page
+        var map = {chat:'chat-page', contacts:'contacts-page', discover:'discover-page', me:'me-page'};
+        var target = map[tab] || (tab+'-page');
+        showPage(target);
+    });
+});
+
+// expose showPage by name used elsewhere (if other code calls showPage with 'chat' etc.)
+function showPageByTab(tab){
+    var map = {chat:'chat-page', contacts:'contacts-page', discover:'discover-page', me:'me-page'};
+    showPage(map[tab] || (tab+'-page'));
+}
+
+// on load ensure chat-page visible
+document.addEventListener('DOMContentLoaded', function(){
+    // if chat-page exists, ensure active
+    if(document.getElementById('chat-page')) showPage('chat-page');
+});
+</script>
+
 </body>
 </html>
