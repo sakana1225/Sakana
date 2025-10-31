@@ -1,0 +1,3650 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="white-translucent">
+<meta name="theme-color" content="rgba(0,0,0,0)">
+<style>
+html, body {
+    height: 100vh;
+    height: -webkit-fill-available;
+    margin: 0;
+    padding: 0;
+    background: transparent !important;
+    -webkit-touch-callout: none;
+}
+.iphone {
+    height: 100vh;
+    height: -webkit-fill-available;
+}
+.lock-screen,
+.home-screen {
+    padding-top: env(safe-area-inset-top);
+    background-size: cover !important;
+    background-position: center center !important;
+}
+.standalone-mode .status-bar {
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+.status-bar {
+    background: transparent !important;
+}
+</style>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+    <!-- 添加到主屏幕全屏设置 -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Sakana">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#000000">
+    <meta name="msapplication-TileColor" content="#000000">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="application-name" content="Sakana小手机">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="HandheldFriendly" content="true">
+    
+    <!-- iOS图标 -->
+    <link rel="apple-touch-icon" href="https://tc.z.wiki/autoupload/fr/oBJ5XpnsM7iywgzz-QhaqM4ANCxnESKetcRdPZbn-GGyl5f0KlZfm6UsKj-HyTuv/20251030/r4xZ/1079X2277/IMG_1212.jpeg">
+    <link rel="apple-touch-icon" sizes="152x152" href="https://tc.z.wiki/autoupload/fr/oBJ5XpnsM7iywgzz-QhaqM4ANCxnESKetcRdPZbn-GGyl5f0KlZfm6UsKj-HyTuv/20251030/r4xZ/1079X2277/IMG_1212.jpeg">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://tc.z.wiki/autoupload/fr/oBJ5XpnsM7iywgzz-QhaqM4ANCxnESKetcRdPZbn-GGyl5f0KlZfm6UsKj-HyTuv/20251030/r4xZ/1079X2277/IMG_1212.jpeg">
+    <link rel="apple-touch-icon" sizes="167x167" href="https://tc.z.wiki/autoupload/fr/oBJ5XpnsM7iywgzz-QhaqM4ANCxnESKetcRdPZbn-GGyl5f0KlZfm6UsKj-HyTuv/20251030/r4xZ/1079X2277/IMG_1212.jpeg">
+    
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="data:application/manifest+json,%7B%22name%22%3A%22Sakana%E5%B0%8F%E6%89%8B%E6%9C%BA%22%2C%22short_name%22%3A%22Sakana%E6%89%8B%E6%9C%BA%22%2C%22description%22%3A%22%E4%B8%80%E4%B8%AA%E4%BB%BFiPhone%E7%9A%84%E5%BE%AE%E4%BF%A1%E7%95%8C%E9%9D%A2%E6%A8%A1%E6%8B%9F%E5%99%A8%22%2C%22start_url%22%3A%22%2F%22%2C%22display%22%3A%22fullscreen%22%2C%22theme_color%22%3A%22%23000000%22%2C%22background_color%22%3A%22%23000000%22%2C%22orientation%22%3A%22portrait%22%2C%22scope%22%3A%22%2F%22%2C%22icons%22%3A%5B%7B%22src%22%3A%22https%3A%2F%2Ftc.z.wiki%2Fautoupload%2Ffr%2FoBJ5XpnsM7iywgzz-QhaqM4ANCxnESKetcRdPZbn-GGyl5f0KlZfm6UsKj-HyTuv%2F20251030%2Fr4xZ%2F1079X2277%2FIMG_1212.jpeg%22%2C%22sizes%22%3A%22192x192%22%2C%22type%22%3A%22image%2Fjpeg%22%7D%2C%7B%22src%22%3A%22https%3A%2F%2Ftc.z.wiki%2Fautoupload%2Ffr%2FoBJ5XpnsM7iywgzz-QhaqM4ANCxnESKetcRdPZbn-GGyl5f0KlZfm6UsKj-HyTuv%2F20251030%2Fr4xZ%2F1079X2277%2FIMG_1212.jpeg%22%2C%22sizes%22%3A%22512x512%22%2C%22type%22%3A%22image%2Fjpeg%22%7D%5D%7D">
+    
+    <title>Sakana</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #000;
+            font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+            /* 确保在iOS上全屏 */
+            height: 100vh;
+            height: -webkit-fill-available;
+        }
+        .iphone {
+            width: 100vw;
+            height: 100vh;
+            height: -webkit-fill-available;
+            background-color: #111;
+            border-radius: 0;
+            padding: 0;
+            box-shadow: none;
+            position: relative;
+            /* 确保全屏模式下的定位 */
+            position: fixed;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+        }
+        .screen {
+            width: 100%;
+            height: 100%;
+            background-color: #1a1a1a;
+            border-radius: 0;
+            overflow: hidden;
+            position: relative;
+            color: white;
+            transition: background-color 0.5s ease;
+        }
+        .status-bar{opacity:0!important;pointer-events:none!important;}
+        .wechat-status-bar{display:none!important;}
+        .signal {
+            display: flex;
+            gap: 1.5px;
+            align-items: flex-end;
+            margin-right: 6px;
+        }
+        .signal-bar {
+            background-color: #000; /* 改为黑色 */
+            border-radius: 1px;
+        }
+        .signal-bar:nth-child(1) {
+            width: 3px;
+            height: 4px;
+        }
+        .signal-bar:nth-child(2) {
+            width: 3px;
+            height: 7px;
+        }
+        .signal-bar:nth-child(3) {
+            width: 3px;
+            height: 10px;
+        }
+        .signal-bar:nth-child(4) {
+            width: 3px;
+            height: 13px;
+        }
+        .battery {
+            display: flex;
+            align-items: center;
+        }
+        .battery-outline {
+            width: 18px;
+            height: 9px;
+            border: 1.2px solid #000; /* 改为黑色 */
+            border-radius: 1.5px;
+            position: relative;
+        }
+        .battery-fill {
+            position: absolute;
+            top: 1px;
+            left: 1px;
+            width: 75%;
+            height: 6px;
+            background-color: #000; /* 改为黑色 */
+            border-radius: 0.5px;
+        }
+        .speaker {
+            width: 80px;
+            height: 8px;
+            background-color: #333;
+            border-radius: 4px;
+            position: absolute;
+            top: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .lock-screen {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            z-index: 3;
+            background: url('https://tc.z.wiki/autoupload/fr/oBJ5XpnsM7iywgzz-QhaqM4ANCxnESKetcRdPZbn-GGyl5f0KlZfm6UsKj-HyTuv/20251030/r4xZ/1079X2277/IMG_1212.jpeg') center/cover no-repeat;
+        }
+        /* 移除黑色罩衫 */
+        .lock-screen::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0); /* 改为透明 */
+            z-index: -1;
+        }
+        .lock-screen-content {
+            text-align: center;
+            padding-top: 120px;
+        }
+        .time {
+            font-size: clamp(48px, 15vw, 72px);
+            font-weight: 300;
+            margin-top: 12px;
+            color: #000; /* 改为黑色 */
+        }
+        .date {
+            font-size: clamp(16px, 4vw, 20px);
+            opacity: 0.9;
+            color: #000; /* 改为黑色 */
+        }
+        .slide-to-unlock {
+            position: absolute;
+            bottom: 60px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: clamp(14px, 3vw, 16px);
+            opacity: 0.8;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: grab;
+            touch-action: pan-x;
+            padding: 10px 20px;
+            border-radius: 30px;
+            z-index: 4;
+            color: #000; /* 改为黑色 */
+        }
+        .slide-icon {
+            width: clamp(24px, 6vw, 32px);
+            height: clamp(24px, 6vw, 32px);
+            border: 1.5px solid #000; /* 改为黑色 */
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: transform 0.3s ease;
+        }
+        .slide-icon::after {
+            content: "";
+            width: clamp(8px, 2vw, 12px);
+            height: clamp(8px, 2vw, 12px);
+            background-color: #000; /* 改为黑色 */
+            border-radius: 50%;
+        }
+        .home-screen {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://tc.z.wiki/autoupload/fr/oBJ5XpnsM7iywgzz-QhaqM4ANCxnESKetcRdPZbn-GGyl5f0KlZfm6UsKj-HyTuv/20251030/r4xZ/1079X2277/IMG_1212.jpeg') center/cover no-repeat;
+            transform: translateX(100%);
+            transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+            padding-top: 70px;
+            box-sizing: border-box;
+            z-index: 2;
+        }
+        /* 移除黑色罩衫 */
+        .home-screen::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0); /* 改为透明 */
+            z-index: -1;
+        }
+        .app-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            padding: 0 15px;
+            height: calc(100% - 100px);
+            overflow-y: auto;
+        }
+        .app-icon {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 0;
+            cursor: pointer;
+        }
+        .app-icon-outer {
+            width: clamp(50px, 15vw, 70px);
+            height: clamp(50px, 15vw, 70px);
+            background-color: #444;
+            border-radius: 16px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: clamp(24px, 6vw, 36px);
+        }
+        .wechat-icon {
+            background-color: #07C160;
+        }
+        .app-name {
+            font-size: clamp(11px, 2.5vw, 14px);
+            opacity: 0.9;
+            text-align: center;
+            width: 100%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            color: #000; /* 改为黑色 */
+        }
+        .wechat-page {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #E5E5E5;
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+            z-index: 5;
+            display: flex;
+            flex-direction: column;
+        }
+        .wechat-header {
+            height: 50px;
+            background-color: #07C160;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 15px;
+            color: white;
+            font-weight: 500;
+            font-size: 18px;
+            margin-top: 0;
+    padding-top: env(safe-area-inset-top);
+            position: relative;
+        }
+        .wechat-title {
+            font-size: 18px;
+            font-weight: 500;
+        }
+        .wechat-back-btn {
+            position: absolute;
+            left: 15px;
+            font-size: 20px;
+            cursor: pointer;
+            color: white;
+        }
+        .wechat-header-icon {
+            position: absolute;
+            right: 15px;
+            font-size: 22px;
+            display: flex;
+            gap: 20px;
+        }
+        #moments-page .moments-container,
+        #me-page .me-container {
+            margin-top: 0;
+    padding-top: env(safe-area-inset-top);
+        }
+        #moments-page .moment-item:first-child {
+            margin-top: 0;
+        }
+        #me-page .me-header {
+            padding-top: 10px;
+        }
+        .wechat-bottom-nav {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 60px;
+            background-color: white;
+            display: flex;
+            border-top: 1px solid #e1e1e1;
+            z-index: 10;
+        }
+        .nav-item {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .nav-item.active {
+            color: #07C160;
+        }
+        .nav-icon {
+            font-size: 20px;
+            margin-bottom: 4px;
+        }
+        .nav-text {
+            font-size: 12px;
+        }
+        .wechat-content {
+            flex: 1;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 60px;
+        }
+        .content-page {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: none;
+            overflow-y: auto;
+        }
+        .content-page.active {
+            display: block;
+        }
+        .wechat-chats {
+            background-color: white;
+        }
+        /* 左滑删除相关样式 */
+        .chat-item {
+            display: flex;
+            align-items: center;
+            padding: 12px 15px;
+            background-color: white;
+            border-bottom: 1px solid #F5F5F5;
+            position: relative;
+            transition: all 0.3s ease;
+            touch-action: pan-x;
+            overflow: hidden;
+        }
+
+        .chat-item-content {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            transition: transform 0.3s ease;
+        }
+
+        .delete-action {
+            position: absolute;
+            right: -80px;
+            top: 0;
+            height: 100%;
+            width: 80px;
+            background-color: #FF3B30;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: right 0.3s ease;
+        }
+
+        .chat-item.swiped .delete-action {
+            right: 0;
+        }
+
+        .chat-item.swiped .chat-item-content {
+            transform: translateX(-80px);
+        }
+
+        .chat-avatar {
+            width: 45px;
+            height: 45px;
+            border-radius: 8px;
+            background-color: #eee;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            margin-right: 12px;
+        }
+        .chat-info {
+            flex: 1;
+        }
+        .chat-name {
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 3px;
+        }
+        .chat-msg {
+            font-size: 14px;
+            color: #888;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .chat-time {
+            font-size: 12px;
+            color: #aaa;
+        }
+
+        /* 空状态样式 */
+        .wechat-chats.empty {
+            background-color: transparent;
+            min-height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .empty-state {
+            text-align: center;
+            color: #999;
+            padding: 40px 20px;
+            display: none;
+        }
+
+        .empty-state.show {
+            display: block;
+        }
+
+        .empty-state-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+            opacity: 0.5;
+        }
+
+        .empty-state-text {
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+
+        .empty-state-subtext {
+            font-size: 14px;
+            opacity: 0.7;
+        }
+
+        /* 删除确认弹窗 */
+        .delete-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .delete-modal.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .delete-modal-content {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            width: 280px;
+            text-align: center;
+            transform: scale(0.7);
+            transition: transform 0.3s ease;
+        }
+
+        .delete-modal.show .delete-modal-content {
+            transform: scale(1);
+        }
+
+        .delete-modal-title {
+            font-size: 18px;
+            font-weight: 500;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .delete-modal-text {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .delete-modal-actions {
+            display: flex;
+            gap: 12px;
+        }
+
+        .modal-btn {
+            flex: 1;
+            padding: 10px 0;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .modal-btn.cancel {
+            background: #f0f0f0;
+            color: #333;
+        }
+
+        .modal-btn.confirm {
+            background: #FF3B30;
+            color: white;
+        }
+
+        .modal-btn:hover {
+            opacity: 0.9;
+        }
+
+        /* 长按提示 - 已移除相关样式 */
+
+        .moments-container {
+            background-color: white;
+            min-height: 100%;
+        }
+        .moment-item {
+            display: flex;
+            padding: 15px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .moment-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #07C160;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 18px;
+            margin-right: 12px;
+        }
+        .moment-content {
+            flex: 1;
+        }
+        .moment-name {
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #333;
+        }
+        .moment-text {
+            margin-bottom: 5px;
+            color: #333;
+            line-height: 1.4;
+        }
+        .moment-time {
+            font-size: 12px;
+            color: #888;
+        }
+        .me-container {
+            background-color: white;
+            min-height: 100%;
+        }
+        .me-header {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            background: linear-gradient(135deg, #07C160, #06AD56);
+            color: white;
+            position: relative;
+        }
+        .me-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 8px; /* 改为正方形带圆角 */
+            background-color: rgba(255,255,255,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-right: 15px;
+            border: 2px solid rgba(255,255,255,0.3);
+            overflow: hidden;
+        }
+        .me-info {
+            flex: 1;
+        }
+        .me-name {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .me-id {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        .me-edit-btn {
+            position: absolute;
+            right: 20px;
+            background: rgba(255,255,255,0.2);
+            padding: 6px 12px;
+            border-radius: 15px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+        .me-edit-btn:hover {
+            background: rgba(255,255,255,0.3);
+        }
+        .me-menu {
+            margin-top: 10px;
+        }
+        .menu-item {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            border-bottom: 1px solid #f0f0f0;
+            color: #333;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .menu-item:hover {
+            background-color: #f8f8f8;
+        }
+        .menu-icon {
+            width: 24px;
+            height: 24px;
+            margin-right: 12px;
+            background-color: #07C160;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 14px;
+        }
+        .wallet-icon {
+            background-color: #FF9500;
+        }
+        .settings-page {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #E5E5E5;
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+            z-index: 7;
+            display: flex;
+            flex-direction: column;
+        }
+        .settings-header {
+            height: 50px;
+            background-color: #8E8E93;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 15px;
+            color: white;
+            font-weight: 500;
+            font-size: 18px;
+            margin-top: 0;
+    padding-top: env(safe-area-inset-top);
+            position: relative;
+        }
+        .settings-content {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px 15px;
+            margin-bottom: 60px;
+        }
+        .settings-section {
+            background-color: white;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+        .section-title {
+            padding: 15px;
+            font-weight: bold;
+            color: #333;
+            border-bottom: 1px solid #f0f0f0;
+            background-color: #f8f8f8;
+        }
+        .settings-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .settings-item:last-child {
+            border-bottom: none;
+        }
+        .item-label {
+            font-size: 16px;
+            color: #333;
+        }
+        .settings-input {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 8px 12px;
+            font-size: 14px;
+            width: 60%;
+            background-color: #f9f9f9;
+        }
+        .settings-select {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 8px 12px;
+            font-size: 14px;
+            background-color: #f9f9f9;
+            width: 60%;
+        }
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 28px;
+        }
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .toggle-slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 34px;
+        }
+        .toggle-slider:before {
+            position: absolute;
+            content: "";
+            height: 20px;
+            width: 20px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+        input:checked + .toggle-slider {
+            background-color: #07C160;
+        }
+        input:checked + .toggle-slider:before {
+            transform: translateX(22px);
+        }
+        .test-button, .action-button {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .test-button {
+            background-color: #007AFF;
+            color: white;
+        }
+        .test-button:hover {
+            background-color: #0056CC;
+        }
+        .action-button.primary {
+            background-color: #07C160;
+            color: white;
+        }
+        .action-button.secondary {
+            background-color: #8E8E93;
+            color: white;
+            margin-top: 8px;
+        }
+        .action-button:hover {
+            opacity: 0.9;
+        }
+        .status-text {
+            font-size: 14px;
+            color: #666;
+            text-align: center;
+            width: 100%;
+        }
+        .status-text.connected {
+            color: #07C160;
+        }
+        .status-text.error {
+            color: #FF3B30;
+        }
+        
+        /* 钱包页面样式 - 简洁版 */
+        .wallet-page {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #f5f5f5;
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+            z-index: 6;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .wallet-header {
+            height: 50px;
+            background-color: #07C160;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 15px;
+            color: white;
+            font-weight: 500;
+            font-size: 18px;
+            margin-top: 0;
+    padding-top: env(safe-area-inset-top);
+            position: relative;
+        }
+
+        .wallet-back-btn {
+            position: absolute;
+            left: 15px;
+            font-size: 20px;
+            cursor: pointer;
+            color: white;
+        }
+
+        .wallet-detail-btn {
+            position: absolute;
+            right: 15px;
+            font-size: 14px;
+            cursor: pointer;
+            color: white;
+        }
+
+        .wallet-content {
+            flex: 1;
+            overflow-y: auto;
+            padding: 0;
+            margin-bottom: 60px;
+        }
+
+        /* 余额卡片 - 简洁版 */
+        .balance-card {
+            background: white;
+            padding: 40px 20px;
+            text-align: center;
+            border-bottom: 1px solid #e1e1e1;
+        }
+
+        .balance-label {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .balance-amount {
+            font-size: 42px;
+            font-weight: bold;
+            color: #333;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .currency-symbol {
+            font-size: 28px;
+            margin-right: 5px;
+            color: #333;
+        }
+
+        /* 操作按钮区域 - 竖向排列 */
+        .actions-section {
+            background: white;
+            margin-bottom: 10px;
+        }
+
+        .actions-column {
+            display: flex;
+            flex-direction: column;
+            padding: 0;
+        }
+
+        .action-btn {
+            display: flex;
+            align-items: center;
+            padding: 20px 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid #f0f0f0;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .action-btn:last-child {
+            border-bottom: none;
+        }
+
+        .action-btn:hover {
+            background-color: #f8f8f8;
+        }
+
+        .action-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            color: white;
+            margin-right: 15px;
+        }
+
+        .recharge-icon {
+            background-color: #07C160;
+        }
+
+        .withdraw-icon {
+            background-color: #8E8E93;
+        }
+
+        .action-info {
+            flex: 1;
+            text-align: left;
+        }
+
+        .action-title {
+            font-size: 16px;
+            color: #333;
+            font-weight: 500;
+            margin-bottom: 4px;
+        }
+
+        .action-desc {
+            font-size: 12px;
+            color: #999;
+        }
+
+        .action-arrow {
+            font-size: 16px;
+            color: #ccc;
+        }
+
+        /* 充值弹窗样式 */
+        .recharge-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .recharge-modal.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .recharge-modal-content {
+            background: white;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 400px;
+            transform: scale(0.7);
+            transition: transform 0.3s ease;
+        }
+
+        .recharge-modal.show .recharge-modal-content {
+            transform: scale(1);
+        }
+
+        .recharge-modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .recharge-modal-title {
+            font-size: 18px;
+            font-weight: 500;
+            color: #333;
+        }
+
+        .recharge-modal-close {
+            font-size: 24px;
+            color: #999;
+            cursor: pointer;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .recharge-modal-close:hover {
+            background: #f5f5f5;
+            color: #333;
+        }
+
+        .recharge-modal-body {
+            padding: 20px;
+        }
+
+        .amount-input-group {
+            margin-bottom: 20px;
+        }
+
+        .amount-label {
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .amount-input-wrapper {
+            position: relative;
+        }
+
+        .amount-input {
+            width: 100%;
+            padding: 15px 15px 15px 45px;
+            border: 1px solid #e1e1e1;
+            border-radius: 8px;
+            font-size: 18px;
+            text-align: left;
+            transition: all 0.3s ease;
+            box-sizing: border-box;
+        }
+
+        .amount-input:focus {
+            border-color: #07C160;
+            outline: none;
+        }
+
+        .input-currency {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 18px;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .quick-amounts {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .quick-amount {
+            padding: 12px;
+            border: 1px solid #e1e1e1;
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: white;
+            font-size: 16px;
+        }
+
+        .quick-amount:hover {
+            border-color: #07C160;
+            background: #f8fff8;
+        }
+
+        .quick-amount.active {
+            border-color: #07C160;
+            background: #07C160;
+            color: white;
+        }
+
+        .recharge-modal-actions {
+            display: flex;
+            gap: 12px;
+            padding: 20px;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        .modal-btn {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .modal-btn.cancel {
+            background: #f0f0f0;
+            color: #333;
+        }
+
+        .modal-btn.confirm {
+            background: #07C160;
+            color: white;
+        }
+
+        .modal-btn:hover {
+            opacity: 0.9;
+        }
+
+        /* 预设管理样式 */
+        .preset-configs {
+            display: none;
+        }
+        .preset-config {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            margin: 10px 0;
+            padding: 10px;
+            border-left: 4px solid #007AFF;
+            display: none;
+        }
+        .preset-management {
+            width: 100%;
+        }
+        .preset-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background-color: #f8f9fa;
+            border-radius: 6px;
+            margin-bottom: 8px;
+        }
+        .preset-info {
+            flex: 1;
+        }
+        .preset-name {
+            font-weight: bold;
+            color: #333;
+        }
+        .preset-url {
+            font-size: 12px;
+            color: #666;
+            margin-top: 2px;
+        }
+        .preset-actions {
+            display: flex;
+            gap: 8px;
+        }
+        .preset-btn {
+            padding: 4px 8px;
+            border: none;
+            border-radius: 4px;
+            font-size: 12px;
+            cursor: pointer;
+        }
+        .preset-btn.apply {
+            background-color: #07C160;
+            color: white;
+        }
+        .preset-btn.delete {
+            background-color: #FF3B30;
+            color: white;
+        }
+        .preset-tag {
+            display: inline-block;
+            padding: 2px 6px;
+            background-color: #007AFF;
+            color: white;
+            border-radius: 10px;
+            font-size: 10px;
+            margin-left: 6px;
+        }
+
+        /* 模型管理样式 */
+        .model-list {
+            max-height: 200px;
+            overflow-y: auto;
+            border: 1px solid #e1e1e1;
+            border-radius: 8px;
+            padding: 10px;
+            background-color: #f8f9fa;
+        }
+
+        .model-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background-color: white;
+            border-radius: 6px;
+            margin-bottom: 8px;
+            border: 1px solid #e1e1e1;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .model-item:hover {
+            background-color: #f0f0f0;
+            transform: translateY(-1px);
+        }
+
+        .model-item.selected {
+            border-color: #007AFF;
+            background-color: #e3f2fd;
+        }
+
+        .model-info {
+            flex: 1;
+        }
+
+        .model-name {
+            font-weight: bold;
+            color: #333;
+            font-size: 14px;
+        }
+
+        .model-id {
+            font-size: 12px;
+            color: #666;
+            margin-top: 2px;
+        }
+
+        .model-status {
+            font-size: 12px;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-weight: bold;
+        }
+
+        .model-status.available {
+            background-color: #07C160;
+            color: white;
+        }
+
+        .model-status.downloading {
+            background-color: #007AFF;
+            color: white;
+        }
+
+        .model-status.not-downloaded {
+            background-color: #8E8E93;
+            color: white;
+        }
+
+        .model-status.error {
+            background-color: #FF3B30;
+            color: white;
+        }
+
+        /* 进度条样式 */
+        .progress-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .progress-text {
+            font-size: 14px;
+            color: #333;
+        }
+
+        .progress-percent {
+            font-size: 14px;
+            font-weight: bold;
+            color: #007AFF;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 6px;
+            background-color: #e1e1e1;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #007AFF, #00C6FF);
+            border-radius: 3px;
+            transition: width 0.3s ease;
+            width: 0%;
+        }
+
+        /* 模型操作按钮 */
+        .model-actions {
+            display: flex;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .model-btn {
+            padding: 6px 12px;
+            border: none;
+            border-radius: 6px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .model-btn.primary {
+            background-color: #007AFF;
+            color: white;
+        }
+
+        .model-btn.secondary {
+            background-color: #8E8E93;
+            color: white;
+        }
+
+        .model-btn:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+        
+        .unlocked .lock-screen {
+            transform: translateX(-100%);
+        }
+        .unlocked .home-screen {
+            transform: translateX(0);
+        }
+        .unlocked .screen {
+            background-color: #2c2c2e;
+        }
+        .wechat-opened .wechat-page {
+            transform: translateX(0);
+        }
+        .wechat-opened .status-bar{opacity:0!important;pointer-events:none!important;}
+        .wechat-opened .wechat-status-bar{display:none!important;}
+        .wallet-opened .wallet-page {
+            transform: translateX(0);
+        }
+        .wallet-opened .status-bar{opacity:0!important;pointer-events:none!important;}
+        .wallet-opened .wechat-status-bar{display:none!important;}
+        .settings-opened .settings-page {
+            transform: translateX(0);
+        }
+        .settings-opened .status-bar{opacity:0!important;pointer-events:none!important;}
+        .settings-opened .wechat-status-bar{display:none!important;}
+        .slide-to-unlock:active .slide-icon {
+            transform: translateX(120px);
+        }
+        .slide-to-unlock:active {
+            opacity: 0.5;
+        }
+        ::-webkit-scrollbar {
+            display: none;
+        }
+        
+        /* 提示框样式 */
+        #presetToast {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0,0,0,0.8);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            z-index: 1000;
+            font-size: 14px;
+            transition: opacity 0.3s;
+            opacity: 0;
+        }
+
+        /* 编辑资料弹窗样式 */
+        .edit-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .edit-modal.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .edit-modal-content {
+            background: white;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 400px;
+            max-height: 80vh;
+            overflow-y: auto;
+            transform: scale(0.7);
+            transition: transform 0.3s ease;
+        }
+
+        .edit-modal.show .edit-modal-content {
+            transform: scale(1);
+        }
+
+        .edit-modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .edit-modal-title {
+            font-size: 18px;
+            font-weight: 500;
+            color: #333;
+        }
+
+        .edit-modal-close {
+            font-size: 24px;
+            color: #999;
+            cursor: pointer;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .edit-modal-close:hover {
+            background: #f5f5f5;
+            color: #333;
+        }
+
+        .edit-modal-body {
+            padding: 20px;
+        }
+
+        .edit-section {
+            margin-bottom: 20px;
+        }
+
+        .edit-label {
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .avatar-upload {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .avatar-preview {
+            width: 60px;
+            height: 60px;
+            border-radius: 8px; /* 改为正方形带圆角 */
+            background: linear-gradient(135deg, #07C160, #06AD56);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 18px;
+            border: 2px solid #e1e1e1;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .upload-btn {
+            padding: 8px 16px;
+            background: #07C160;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .upload-btn:hover {
+            background: #06AD56;
+        }
+
+        .edit-input, .edit-textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #e1e1e1;
+            border-radius: 6px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            box-sizing: border-box;
+        }
+
+        .edit-input:focus, .edit-textarea:focus {
+            border-color: #07C160;
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(7, 193, 96, 0.1);
+        }
+
+        .edit-textarea {
+            height: 80px;
+            resize: none;
+            font-family: inherit;
+        }
+
+        .edit-tip {
+            font-size: 12px;
+            color: #999;
+            margin-top: 4px;
+        }
+
+        .edit-modal-actions {
+            display: flex;
+            gap: 12px;
+            padding: 20px;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        /* 全屏模式优化 */
+        @supports (-webkit-touch-callout: none) {
+            .iphone {
+                height: 100vh;
+                height: -webkit-fill-available;
+            }
+        }
+
+        /* 全屏模式下的状态栏优化 */
+        .standalone-mode .status-bar{opacity:0!important;pointer-events:none!important;}
+    
+/* --- 官方 SVG 图标样式 --- */
+.icon { display: block; width: 24px; height: 24px; }
+.nav-text { font-size: 12px; color: #8E8E93; margin-top: 4px; }
+
+.wechat-bottom-nav { position: absolute; bottom: 0; left: 0; width: 100%; height: 60px; background-color: white; display: flex; border-top: 1px solid #e1e1e1; z-index: 10; }
+.wechat-bottom-nav .nav-item { flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; cursor:pointer; position:relative; overflow:hidden; }
+.wechat-bottom-nav .nav-item .ripple { position:absolute; border-radius:50%; transform:scale(0); background: rgba(7,193,96,0.15); width: 10px; height: 10px; pointer-events:none; transition: transform 0.5s, opacity 0.5s; opacity:0; }
+/* active (green) */
+.nav-item.active .nav-text { color: #07C160; }
+.nav-item.active .icon path, .nav-item.active .icon circle, .nav-item.active .icon rect { stroke: #07C160 !important; fill: #07C160 !important; }
+
+/* basic tap feedback */
+.nav-item:active .ripple { transform: scale(6); opacity:1; transition: transform 0.25s, opacity 0.4s; }
+
+
+.wechat-header, .settings-header {
+ background:#ffffff!important;
+ color:#000!important;
+ border-bottom:1px solid rgba(0,0,0,0.1);
+ height:44px;
+ display:flex;
+ align-items:center;
+ padding:0 15px;
+ box-sizing:border-box;
+}
+.wechat-opened .wechat-content{padding-top:44px!important;}
+
+
+/* Force back buttons to black */
+.wechat-back-btn,
+.wallet-back-btn {
+    color: #000 !important;
+}
+
+</style>
+</head>
+<body>
+
+<!-- SVG sprite: official-style icons (symbols) -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+  <symbol id="icon-wechat" viewBox="0 0 24 24">
+    <path d="M5 17c-1.1 0-2-.9-2-2V7c0-1.1.9-2 2-2h9c1.1 0 2 .9 2 2v3" stroke="#8E8E93" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <path d="M21 15c0 1.1-.9 2-2 2H9l-3 3v-3H6.5" stroke="#8E8E93" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <circle cx="14.5" cy="9.5" r="0.9" fill="#8E8E93"/>
+    <circle cx="10.5" cy="9.5" r="0.9" fill="#8E8E93"/>
+  </symbol>
+
+  <symbol id="icon-contacts" viewBox="0 0 24 24">
+    <rect x="3" y="4" width="14" height="16" rx="2" stroke="#8E8E93" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <path d="M19 6h2v12h-2" stroke="#8E8E93" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <circle cx="9.5" cy="10" r="1.6" stroke="#8E8E93" stroke-width="1.6" fill="none"/>
+    <path d="M7.5 14c0-1.5 2-2.2 4-2.2s4 .7 4 2.2" stroke="#8E8E93" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  </symbol>
+
+  <symbol id="icon-discover" viewBox="0 0 24 24">
+    <circle cx="12" cy="12" r="8" stroke="#8E8E93" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <path d="M13.2 6.8L9.8 10.2l3.4 3.4 3.4-3.4L13.2 6.8z" stroke="#8E8E93" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  </symbol>
+
+  <symbol id="icon-me" viewBox="0 0 24 24">
+    <circle cx="12" cy="8.5" r="2.2" stroke="#8E8E93" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <path d="M5 19c0-3.3 3.6-5 7-5s7 1.7 7 5" stroke="#8E8E93" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  </symbol>
+</svg>
+
+    <div class="iphone">
+        <div class="screen" id="screen">
+            <div class="status-bar">
+                <span id="statusTime">00:00</span>
+                <div style="display: flex; align-items: center;">
+                    <div class="signal">
+                        <div class="signal-bar"></div>
+                        <div class="signal-bar"></div>
+                        <div class="signal-bar"></div>
+                        <div class="signal-bar"></div>
+                    </div>
+                    <div class="battery">
+                        <div class="battery-outline">
+                            <div class="battery-fill"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="speaker"></div>
+            
+            <div class="lock-screen" id="lockScreen">
+                <div class="lock-screen-content">
+                    <div class="date" id="lockDate">星期X 月 日</div>
+                    <div class="time" id="lockTime">00:00</div>
+                </div>
+                <div class="slide-to-unlock" id="slideToUnlock">
+                    <span class="slide-icon"></span>
+                    <span>右滑解锁</span>
+                </div>
+            </div>
+            
+            <div class="home-screen" id="homeScreen">
+                <div class="app-grid">
+                    <div class="app-icon">
+                        <div class="app-icon-outer">📱</div>
+                        <div class="app-name">电话</div>
+                    </div>
+                    <div class="app-icon">
+                        <div class="app-icon-outer">💬</div>
+                        <div class="app-name">信息</div>
+                    </div>
+                    <div class="app-icon" id="wechatIcon">
+                        <div class="app-icon-outer wechat-icon">💬</div>
+                        <div class="app-name">微信</div>
+                    </div>
+                   <!-- QQ 图标 -->
+<div class="app-icon" id="qqIcon">
+    <div class="app-icon-outer" style="background-color:#12B7F5;">🐧</div>
+    <div class="app-name">QQ</div>
+</div>
+                    <div class="app-icon">
+                        <div class="app-icon-outer">🎵</div>
+                        <div class="app-name">音乐</div>
+                    </div>
+                    <div class="app-icon" id="settingsIcon">
+                        <div class="app-icon-outer" style="background-color: #8E8E93;">⚙️</div>
+                        <div class="app-name">设置</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="wechat-page" id="wechatPage">
+                <div class="wechat-status-bar">
+                    <span id="wechatStatusTime">00:00</span>
+                    <div style="display: flex; align-items: center;">
+                        <div class="signal">
+                            <div class="signal-bar"></div>
+                            <div class="signal-bar"></div>
+                            <div class="signal-bar"></div>
+                            <div class="signal-bar"></div>
+                        </div>
+                        <div class="battery">
+                            <div class="battery-outline">
+                                <div class="battery-fill"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="wechat-content">
+                    <div class="content-page active" id="chat-page">
+                        <div class="wechat-header">
+                            <div class="wechat-back-btn" id="wechatBackBtn">←</div>
+                            <div class="wechat-title">微信</div>
+                            <div class="wechat-header-icon">
+                                <span>+</span>
+                                <span>⋮</span>
+                            </div>
+                        </div>
+                        <div class="wechat-chats" id="chatList">
+                            <div class="chat-item">
+                                <div class="chat-item-content">
+                                    <div class="chat-avatar" style="background-color: #07C160; color: white;">微</div>
+                                    <div class="chat-info">
+                                        <div class="chat-name">微信团队</div>
+                                        <div class="chat-msg">欢迎使用微信</div>
+                                    </div>
+                                    <div class="chat-time">09:42</div>
+                                </div>
+                                <div class="delete-action">删除</div>
+                            </div>
+                            <div class="chat-item">
+                                <div class="chat-item-content">
+                                    <div class="chat-avatar" style="background-color: #1296DB; color: white;">文</div>
+                                    <div class="chat-info">
+                                        <div class="chat-name">文件传输助手</div>
+                                        <div class="chat-msg">你可以在这里传输文件</div>
+                                    </div>
+                                    <div class="chat-time">昨天</div>
+                                </div>
+                                <div class="delete-action">删除</div>
+                            </div>
+                            <div class="chat-item">
+                                <div class="chat-item-content">
+                                    <div class="chat-avatar" style="background-color: #FF9500; color: white;">家</div>
+                                    <div class="chat-info">
+                                        <div class="chat-name">家人群</div>
+                                        <div class="chat-msg">妈妈：晚上回家吃饭吗？</div>
+                                    </div>
+                                    <div class="chat-time">昨天</div>
+                                </div>
+                                <div class="delete-action">删除</div>
+                            </div>
+                            
+                            <!-- 空状态提示 -->
+                            <div class="empty-state" id="emptyState">
+                                <div class="empty-state-icon">💬</div>
+                                <div class="empty-state-text">暂无聊天记录</div>
+                                <div class="empty-state-subtext">左滑删除聊天，下拉刷新</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="content-page" id="moments-page">
+                        <div class="moments-container">
+                            <div class="moment-item">
+                                <div class="moment-avatar">张</div>
+<div class="content-page" id="contacts-page"></div>
+<div class="content-page" id="discover-page"></div>
+
+                                <div class="moment-content">
+                                    <div class="moment-name">张三</div>
+                                    <div class="moment-text">今天的夕阳真美，分享给大家！🌅</div>
+                                    <div class="moment-time">1小时前</div>
+                                </div>
+                            </div>
+                            <div class="moment-item">
+                                <div class="moment-avatar">李</div>
+                                <div class="moment-content">
+                                    <div class="moment-name">李四</div>
+                                    <div class="moment-text">新学的菜谱，味道还不错 😋</div>
+                                    <div class="moment-time">3小时前</div>
+                                </div>
+                            </div>
+                            <div class="moment-item">
+                                <div class="moment-avatar">王</div>
+                                <div class="moment-content">
+                                    <div class="moment-name">王五</div>
+                                    <div class="moment-text">周末去爬山，空气真好！</div>
+                                    <div class="moment-time">5小时前</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="content-page" id="me-page">
+                        <div class="me-container">
+                            <div class="me-header">
+                                <div class="me-avatar" id="userAvatar">
+                                    <img id="avatarImage" src="" alt="头像" style="width: 100%; height: 100%; border-radius: 8px; display: none;">
+                                    <span id="avatarText">我</span>
+                                </div>
+                                <div class="me-info">
+                                    <div class="me-name" id="userName">微信用户</div>
+                                    <div class="me-id" id="userId">微信号: wechat12345</div>
+                                </div>
+                                <div class="me-edit-btn" id="editProfileBtn">编辑资料</div>
+                            </div>
+                            <div class="me-menu">
+                                <div class="menu-item" id="walletMenuItem">
+                                    <div class="menu-icon wallet-icon">💰</div>
+                                    <span>钱包</span>
+                                </div>
+                                <div class="menu-item">
+                                    <div class="menu-icon">表</div>
+                                    <span>表情</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                
+<div class="wechat-bottom-nav">
+    <div class="nav-item active" data-tab="chat" aria-label="微信">
+        <svg class="icon" width="24" height="24" aria-hidden="true"><use href="#icon-wechat"></use></svg>
+        <div class="nav-text">微信</div>
+        <span class="ripple"></span>
+    </div>
+    <div class="nav-item" data-tab="contacts" aria-label="通讯录">
+        <svg class="icon" width="24" height="24" aria-hidden="true"><use href="#icon-contacts"></use></svg>
+        <div class="nav-text">通讯录</div>
+        <span class="ripple"></span>
+    </div>
+    <div class="nav-item" data-tab="discover" aria-label="发现">
+        <svg class="icon" width="24" height="24" aria-hidden="true"><use href="#icon-discover"></use></svg>
+        <div class="nav-text">发现</div>
+        <span class="ripple"></span>
+    </div>
+    <div class="nav-item" data-tab="me" aria-label="我">
+        <svg class="icon" width="24" height="24" aria-hidden="true"><use href="#icon-me"></use></svg>
+        <div class="nav-text">我</div>
+        <span class="ripple"></span>
+    </div>
+</div>
+
+</div>
+                    <div class="nav-item" data-tab="moments">
+                        <div class="nav-icon">📸</div>
+                        <div class="nav-text">朋友圈</div>
+                    </div>
+                    <div class="nav-item" data-tab="me">
+                        <div class="nav-icon">👤</div>
+                        <div class="nav-text">我</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 钱包页面 - 简洁版 -->
+            <div class="wallet-page" id="walletPage">
+                <div class="wechat-status-bar">
+                    <span id="walletStatusTime">00:00</span>
+                    <div style="display: flex; align-items: center;">
+                        <div class="signal">
+                            <div class="signal-bar"></div>
+                            <div class="signal-bar"></div>
+                            <div class="signal-bar"></div>
+                            <div class="signal-bar"></div>
+                        </div>
+                        <div class="battery">
+                            <div class="battery-outline">
+                                <div class="battery-fill"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="wallet-header">
+                    <div class="wallet-back-btn" id="walletBackBtn">←</div>
+                    <div class="wechat-title">钱包</div>
+                    <div class="wallet-detail-btn" id="walletDetailBtn">零钱明细</div>
+                </div>
+                
+                <div class="wallet-content">
+                    <!-- 余额显示 -->
+                    <div class="balance-card">
+                        <div class="balance-label">我的零钱</div>
+                        <div class="balance-amount">
+                            <span class="currency-symbol">¥</span><span id="balanceAmount">0.00</span>
+                        </div>
+                    </div>
+                    
+                    <!-- 操作按钮 - 竖向排列 -->
+                    <div class="actions-section">
+                        <div class="actions-column">
+                            <div class="action-btn" id="rechargeBtn">
+                                <div class="action-icon recharge-icon">充</div>
+                                <div class="action-info">
+                                    <div class="action-title">充值</div>
+                                    <div class="action-desc">充值到零钱</div>
+                                </div>
+                                <div class="action-arrow">></div>
+                            </div>
+                            <div class="action-btn" id="withdrawBtn">
+                                <div class="action-icon withdraw-icon">提</div>
+                                <div class="action-info">
+                                    <div class="action-title">提现</div>
+                                    <div class="action-desc">提现到银行卡</div>
+                                </div>
+                                <div class="action-arrow">></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 删除确认弹窗 -->
+            <div class="delete-modal" id="deleteModal">
+                <div class="delete-modal-content">
+                    <div class="delete-modal-title">删除聊天</div>
+                    <div class="delete-modal-text">删除后，将清空该聊天的消息记录</div>
+                    <div class="delete-modal-actions">
+                        <button class="modal-btn cancel" id="cancelDelete">取消</button>
+                        <button class="modal-btn confirm" id="confirmDelete">删除</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 编辑资料弹窗 -->
+            <div class="edit-modal" id="editModal">
+                <div class="edit-modal-content">
+                    <div class="edit-modal-header">
+                        <div class="edit-modal-title">编辑资料</div>
+                        <div class="edit-modal-close" id="closeEditModal">×</div>
+                    </div>
+                    
+                    <div class="edit-modal-body">
+                        <!-- 头像上传 -->
+                        <div class="edit-section">
+                            <div class="edit-label">头像</div>
+                            <div class="avatar-upload">
+                                <div class="avatar-preview" id="avatarPreview">
+                                    <img id="previewImage" src="" alt="预览" style="width: 100%; height: 100%; border-radius: 8px; display: none;">
+                                    <span id="previewText">我</span>
+                                </div>
+                                <input type="file" id="avatarInput" accept="image/*" style="display: none;">
+                                <button class="upload-btn" id="uploadAvatarBtn">选择图片</button>
+                            </div>
+                        </div>
+                        
+                        <!-- 用户名修改 -->
+                        <div class="edit-section">
+                            <div class="edit-label">名字</div>
+                            <input type="text" class="edit-input" id="editNameInput" placeholder="请输入名字" maxlength="20">
+                            <div class="edit-tip">不超过20个字符</div>
+                        </div>
+                        
+                        <!-- 微信号修改 -->
+                        <div class="edit-section">
+                            <div class="edit-label">微信号</div>
+                            <input type="text" class="edit-input" id="editIdInput" placeholder="请输入微信号" maxlength="20">
+                            <div class="edit-tip">微信号是唯一的，修改后不能更改</div>
+                        </div>
+                        
+                        <!-- 个性签名 -->
+                        <div class="edit-section">
+                            <div class="edit-label">个性签名</div>
+                            <textarea class="edit-textarea" id="editBioInput" placeholder="请输入个性签名" maxlength="50"></textarea>
+                            <div class="edit-tip">不超过50个字符</div>
+                        </div>
+                    </div>
+                    
+                    <div class="edit-modal-actions">
+                        <button class="modal-btn cancel" id="cancelEdit">取消</button>
+                        <button class="modal-btn confirm" id="saveEdit">保存</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 充值弹窗 -->
+            <div class="recharge-modal" id="rechargeModal">
+                <div class="recharge-modal-content">
+                    <div class="recharge-modal-header">
+                        <div class="recharge-modal-title">充值</div>
+                        <div class="recharge-modal-close" id="closeRechargeModal">×</div>
+                    </div>
+                    
+                    <div class="recharge-modal-body">
+                        <div class="amount-input-group">
+                            <div class="amount-label">充值金额</div>
+                            <div class="amount-input-wrapper">
+                                <span class="input-currency">¥</span>
+                                <input type="number" class="amount-input" id="amountInput" placeholder="0.00" min="0.01" step="0.01">
+                            </div>
+                        </div>
+                        
+                        <div class="quick-amounts">
+                            <div class="quick-amount" data-amount="10">10</div>
+                            <div class="quick-amount" data-amount="50">50</div>
+                            <div class="quick-amount" data-amount="100">100</div>
+                            <div class="quick-amount" data-amount="200">200</div>
+                            <div class="quick-amount" data-amount="500">500</div>
+                            <div class="quick-amount" data-amount="1000">1000</div>
+                        </div>
+                    </div>
+                    
+                    <div class="recharge-modal-actions">
+                        <button class="modal-btn cancel" id="cancelRecharge">取消</button>
+                        <button class="modal-btn confirm" id="confirmRecharge">确认充值</button>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="settings-page" id="settingsPage">
+                <div class="wechat-status-bar">
+                    <span id="settingsStatusTime">00:00</span>
+                    <div style="display: flex; align-items: center;">
+                        <div class="signal">
+                            <div class="signal-bar"></div>
+                            <div class="signal-bar"></div>
+                            <div class="signal-bar"></div>
+                            <div class="signal-bar"></div>
+                        </div>
+                        <div class="battery">
+                            <div class="battery-outline">
+                                <div class="battery-fill"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="settings-header">
+                    <div class="wechat-back-btn" id="settingsBackBtn">←</div>
+                    <div class="wechat-title">API设置</div>
+                </div>
+                
+                <div class="settings-content">
+                    <!-- API预设管理部分 -->
+                    <div class="settings-section">
+                        <div class="section-title">API预设管理</div>
+                        
+                        <div class="settings-item">
+                            <div class="item-label">选择预设</div>
+                            <select id="presetSelector" class="settings-select">
+                                <option value="custom">自定义配置</option>
+                                <option value="preset1">预设1: OpenAI官方</option>
+                                <option value="preset2">预设2: 国内代理1</option>
+                                <option value="preset3">预设3: 国内代理2</option>
+                            </select>
+                        </div>
+                        
+                        <div id="presetConfigs" class="preset-configs">
+                            <div class="preset-config" data-preset="preset1">
+                                <div class="settings-item">
+                                    <div class="item-label">API地址</div>
+                                    <input type="text" class="preset-api-url settings-input" value="https://api.openai.com/v1" readonly>
+                                </div>
+                                <div class="settings-item">
+                                    <div class="item-label">API密钥</div>
+                                    <input type="password" class="preset-api-key settings-input" placeholder="输入OpenAI API密钥">
+                                </div>
+                            </div>
+                            
+                            <div class="preset-config" data-preset="preset2">
+                                <div class="settings-item">
+                                    <div class="item-label">API地址</div>
+                                    <input type="text" class="preset-api-url settings-input" value="https://api.aimlapi.com/v1" readonly>
+                                </div>
+                                <div class="settings-item">
+                                    <div class="item-label">API密钥</div>
+                                    <input type="password" class="preset-api-key settings-input" placeholder="输入代理API密钥">
+                                </div>
+                            </div>
+                            
+                            <div class="preset-config" data-preset="preset3">
+                                <div class="settings-item">
+                                    <div class="item-label">API地址</div>
+                                    <input type="text" class="preset-api-url settings-input" value="https://chatgpt.proxy/v1" readonly>
+                                </div>
+                                <div class="settings-item">
+                                    <div class="item-label">API密钥</div>
+                                    <input type="password" class="preset-api-key settings-input" placeholder="输入代理API密钥">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="settings-item" style="flex-direction: column; align-items: stretch;">
+                            <button id="applyPreset" class="action-button primary" style="margin-bottom: 8px;">应用此预设</button>
+                            <button id="saveCurrentAsPreset" class="action-button secondary">保存当前为预设</button>
+                        </div>
+                        
+                        <div class="settings-item" style="flex-direction: column; align-items: stretch;">
+                            <div class="preset-management">
+                                <input type="text" id="newPresetName" class="settings-input" placeholder="新预设名称" style="margin-bottom: 8px;">
+                                <button id="createNewPreset" class="action-button secondary">创建新预设</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="settings-section">
+                        <div class="section-title">API配置</div>
+                        <div class="settings-item">
+                            <div class="item-label">API地址</div>
+                            <input type="text" id="apiUrl" class="settings-input" placeholder="https://api.example.com" value="https://api.example.com">
+                        </div>
+                        <div class="settings-item">
+                            <div class="item-label">API密钥</div>
+                            <input type="password" id="apiKey" class="settings-input" placeholder="输入API密钥" value="sk-xxxxxxxx">
+                        </div>
+                        <div class="settings-item">
+                            <div class="item-label">请求超时</div>
+                            <select id="apiTimeout" class="settings-select">
+                                <option value="5000">5秒</option>
+                                <option value="10000" selected>10秒</option>
+                                <option value="30000">30秒</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="settings-section">
+                        <div class="section-title">功能设置</div>
+                        <div class="settings-item toggle-item">
+                            <div class="item-label">启用缓存</div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="enableCache" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <div class="settings-item toggle-item">
+                            <div class="item-label">自动重试</div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="autoRetry" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <div class="settings-item">
+                            <div class="item-label">重试次数</div>
+                            <select id="retryCount" class="settings-select">
+                                <option value="1">1次</option>
+                                <option value="2">2次</option>
+                                <option value="3" selected>3次</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="settings-section">
+                        <div class="section-title">测试连接</div>
+                        <div class="settings-item">
+                            <button id="testConnection" class="test-button">测试API连接</button>
+                        </div>
+                        <div class="settings-item">
+                            <div id="connectionStatus" class="status-text">未测试</div>
+                        </div>
+                    </div>
+                    
+                    <div class="settings-section">
+                        <div class="section-title">数据管理</div>
+                        <div class="settings-item">
+                            <button id="saveSettings" class="action-button primary">保存设置</button>
+                        </div>
+                        <div class="settings-item">
+                            <button id="resetSettings" class="action-button secondary">恢复默认</button>
+                        </div>
+                        <div class="settings-item">
+                            <button id="clearCache" class="action-button secondary">清除缓存</button>
+                        </div>
+                    </div>
+
+                    <!-- 模型管理部分 -->
+                    <div class="settings-section">
+                        <div class="section-title">模型管理</div>
+                        
+                        <!-- 模型列表显示 -->
+                        <div class="settings-item" style="flex-direction: column; align-items: stretch;">
+                            <div class="model-list" id="modelList">
+                                <div class="model-item">
+                                    <div class="model-info">
+                                        <div class="model-name">GPT-4</div>
+                                        <div class="model-id">gpt-4</div>
+                                    </div>
+                                    <div class="model-status available">已下载</div>
+                                </div>
+                                <div class="model-item">
+                                    <div class="model-info">
+                                        <div class="model-name">GPT-3.5 Turbo</div>
+                                        <div class="model-id">gpt-3.5-turbo</div>
+                                    </div>
+                                    <div class="model-status available">已下载</div>
+                                </div>
+                                <div class="model-item">
+                                    <div class="model-info">
+                                        <div class="model-name">Claude 3</div>
+                                        <div class="model-id">claude-3</div>
+                                    </div>
+                                    <div class="model-status not-downloaded">未下载</div>
+                                </div>
+                                <div class="model-item">
+                                    <div class="model-info">
+                                        <div class="model-name">Llama 2 70B</div>
+                                        <div class="model-id">llama-2-70b</div>
+                                    </div>
+                                    <div class="model-status not-downloaded">未下载</div>
+                                </div>
+                                <div class="model-item">
+                                    <div class="model-info">
+                                        <div class="model-name">Mistral 7B</div>
+                                        <div class="model-id">mistral-7b</div>
+                                    </div>
+                                    <div class="model-status not-downloaded">未下载</div>
+                                </div>
+                                <div class="model-item">
+                                    <div class="model-info">
+                                        <div class="model-name">CodeLlama 34B</div>
+                                        <div class="model-id">codellama-34b</div>
+                                    </div>
+                                    <div class="model-status not-downloaded">未下载</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 模型操作按钮 -->
+                        <div class="settings-item" style="flex-direction: column; align-items: stretch;">
+                            <button id="refreshModels" class="action-button primary" style="margin-bottom: 8px;">
+                                🔄 刷新模型列表
+                            </button>
+                            <button id="downloadModel" class="action-button secondary">
+                                ⬇️ 下载选中模型
+                            </button>
+                        </div>
+                        
+                        <!-- 手动添加模型 -->
+                        <div class="settings-item" style="flex-direction: column; align-items: stretch;">
+                            <input type="text" id="customModelName" class="settings-input" placeholder="模型名称" style="margin-bottom: 8px;">
+                            <input type="text" id="customModelId" class="settings-input" placeholder="模型ID" style="margin-bottom: 8px;">
+                            <button id="addCustomModel" class="action-button secondary">➕ 添加自定义模型</button>
+                        </div>
+                        
+                        <!-- 模型下载进度 -->
+                        <div class="settings-item" style="flex-direction: column; align-items: stretch; display: none;" id="downloadProgressContainer">
+                            <div class="progress-info">
+                                <div class="progress-text">下载中: <span id="downloadingModel">GPT-4</span></div>
+                                <div class="progress-percent" id="downloadPercent">0%</div>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" id="progressFill" style="width: 0%"></div>
+                            </div>
+                            <button id="cancelDownload" class="action-button secondary" style="margin-top: 8px;">❌ 取消下载</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 检测是否在全屏模式下运行
+        function isInStandaloneMode() {
+            return (window.matchMedia('(display-mode: standalone)').matches) || 
+                   (window.navigator.standalone) || 
+                   (document.referrer.includes('android-app://'));
+        }
+
+        // 应用全屏优化
+        if (isInStandaloneMode()) {
+            document.documentElement.classList.add('standalone-mode');
+            
+            // 隐藏状态栏区域（如果需要）
+            const statusBar = document.querySelector('.status-bar');
+            if (statusBar) {
+                statusBar.style.display = 'none';
+            }
+        }
+
+        // 北京实时时间更新函数
+        function updateBeijingTime() {
+            const now = new Date();
+            const beijingTime = new Date(now.getTime() + (now.getTimezoneOffset() + 480) * 60000);
+            
+            const hours = String(beijingTime.getHours()).padStart(2, '0');
+            const minutes = String(beijingTime.getMinutes()).padStart(2, '0');
+            const timeStr = `${hours}:${minutes}`;
+            
+            const weekDays = ['日', '一', '二', '三', '四', '五', '六'];
+            const weekDay = weekDays[beijingTime.getDay()];
+            const month = beijingTime.getMonth() + 1;
+            const date = beijingTime.getDate();
+            const dateStr = `星期${weekDay} ${month}月${date}日`;
+            
+            document.getElementById('statusTime').textContent = timeStr;
+            document.getElementById('lockTime').textContent = timeStr;
+            document.getElementById('lockDate').textContent = dateStr;
+            document.getElementById('wechatStatusTime').textContent = timeStr;
+            document.getElementById('settingsStatusTime').textContent = timeStr;
+            document.getElementById('walletStatusTime').textContent = timeStr;
+        }
+
+        // 初始化时间并每秒更新
+        updateBeijingTime();
+        setInterval(updateBeijingTime, 1000);
+
+        // 滑动解锁逻辑
+        const slideToUnlock = document.getElementById('slideToUnlock');
+        const screen = document.getElementById('screen');
+        let isDragging = false;
+        let startX = 0;
+        const unlockThreshold = window.innerWidth * 0.4;
+
+        slideToUnlock.addEventListener('mousedown', startDrag);
+        slideToUnlock.addEventListener('touchstart', startDrag);
+        document.addEventListener('mousemove', drag);
+        document.addEventListener('touchmove', drag, { passive: true });
+        document.addEventListener('mouseup', endDrag);
+        document.addEventListener('touchend', endDrag);
+
+        function startDrag(e) {
+            isDragging = true;
+            startX = e.type === 'mousedown' ? e.clientX : e.touches[0].clientX;
+            slideToUnlock.style.cursor = 'grabbing';
+        }
+
+        function drag(e) {
+            if (!isDragging) return;
+            const currentX = e.type === 'mousemove' ? e.clientX : e.touches[0].clientX;
+            const dragDistance = currentX - startX;
+            
+            if (dragDistance > 0) {
+                slideToUnlock.querySelector('.slide-icon').style.transform = `translateX(${dragDistance}px)`;
+                slideToUnlock.style.opacity = 0.8 - (dragDistance / unlockThreshold) * 0.3;
+            }
+        }
+
+        function endDrag(e) {
+            const currentX = e.type === 'mouseup' ? e.clientX : e.changedTouches[0].clientX;
+            const dragDistance = currentX - startX;
+            
+            if (dragDistance >= unlockThreshold) {
+                screen.classList.add('unlocked');
+            } else {
+                slideToUnlock.querySelector('.slide-icon').style.transform = 'translateX(0)';
+                slideToUnlock.style.opacity = 0.8;
+            }
+            
+            isDragging = false;
+            slideToUnlock.style.cursor = 'grab';
+        }
+
+        // 双击主页返回锁屏
+        document.getElementById('homeScreen').addEventListener('dblclick', () => {
+            screen.classList.remove('unlocked');
+            screen.classList.remove('wechat-opened');
+            screen.classList.remove('wallet-opened');
+            screen.classList.remove('settings-opened');
+        });
+
+        // 微信图标点击事件
+        document.getElementById('wechatIcon').addEventListener('click', () => {
+            screen.classList.add('wechat-opened');
+        });
+
+        // 设置图标点击事件
+        document.getElementById('settingsIcon').addEventListener('click', () => {
+            screen.classList.add('settings-opened');
+        });
+
+        // 返回按钮事件
+        document.getElementById('wechatBackBtn').addEventListener('click', () => {
+            screen.classList.remove('wechat-opened');
+        });
+
+        // 钱包返回按钮
+        document.getElementById('walletBackBtn').addEventListener('click', () => {
+            screen.classList.remove('wallet-opened');
+        });
+
+        // 设置页面返回按钮
+        document.getElementById('settingsBackBtn').addEventListener('click', () => {
+            screen.classList.remove('settings-opened');
+        });
+
+        // 底部导航切换功能
+        const navItems = document.querySelectorAll('.nav-item');
+        const contentPages = document.querySelectorAll('.content-page');
+
+        navItems.forEach(item => {
+            item.addEventListener('click', function() {
+                // 移除所有active类
+                navItems.forEach(nav => nav.classList.remove('active'));
+                contentPages.forEach(page => page.classList.remove('active'));
+                
+                // 添加当前active类
+                this.classList.add('active');
+                const tabName = this.getAttribute('data-tab');
+                document.getElementById(`${tabName}-page`).classList.add('active');
+            });
+        });
+
+        // 钱包菜单项点击事件
+        document.getElementById('walletMenuItem').addEventListener('click', () => {
+            screen.classList.add('wallet-opened');
+        });
+
+        // 测试API连接
+        document.getElementById('testConnection').addEventListener('click', async () => {
+            const statusElement = document.getElementById('connectionStatus');
+            const apiUrl = document.getElementById('apiUrl').value;
+            
+            statusElement.textContent = '测试中...';
+            statusElement.className = 'status-text';
+            
+            try {
+                // 模拟API测试
+                await new Promise(resolve => setTimeout(resolve, 2000));
+                
+                // 随机模拟成功或失败
+                const isSuccess = Math.random() > 0.3;
+                
+                if (isSuccess) {
+                    statusElement.textContent = '连接成功 ✓';
+                    statusElement.className = 'status-text connected';
+                } else {
+                    statusElement.textContent = '连接失败 ✗';
+                    statusElement.className = 'status-text error';
+                }
+            } catch (error) {
+                statusElement.textContent = '连接错误 ✗';
+                statusElement.className = 'status-text error';
+            }
+        });
+
+        // 保存设置
+        document.getElementById('saveSettings').addEventListener('click', () => {
+            const settings = {
+                apiUrl: document.getElementById('apiUrl').value,
+                apiKey: document.getElementById('apiKey').value,
+                timeout: document.getElementById('apiTimeout').value,
+                enableCache: document.getElementById('enableCache').checked,
+                autoRetry: document.getElementById('autoRetry').checked,
+                retryCount: document.getElementById('retryCount').value
+            };
+            
+            localStorage.setItem('apiSettings', JSON.stringify(settings));
+            alert('设置已保存！');
+        });
+
+        // 恢复默认设置
+        document.getElementById('resetSettings').addEventListener('click', () => {
+            if (confirm('确定要恢复默认设置吗？')) {
+                document.getElementById('apiUrl').value = 'https://api.example.com';
+                document.getElementById('apiKey').value = 'sk-xxxxxxxx';
+                document.getElementById('apiTimeout').value = '10000';
+                document.getElementById('enableCache').checked = true;
+                document.getElementById('autoRetry').checked = true;
+                document.getElementById('retryCount').value = '3';
+            }
+        });
+
+        // 清除缓存
+        document.getElementById('clearCache').addEventListener('click', () => {
+            if (confirm('确定要清除所有缓存吗？')) {
+                localStorage.removeItem('apiSettings');
+                alert('缓存已清除！');
+            }
+        });
+
+        // 加载保存的设置
+        function loadSettings() {
+            const savedSettings = localStorage.getItem('apiSettings');
+            if (savedSettings) {
+                const settings = JSON.parse(savedSettings);
+                document.getElementById('apiUrl').value = settings.apiUrl || 'https://api.example.com';
+                document.getElementById('apiKey').value = settings.apiKey || 'sk-xxxxxxxx';
+                document.getElementById('apiTimeout').value = settings.timeout || '10000';
+                document.getElementById('enableCache').checked = settings.enableCache !== false;
+                document.getElementById('autoRetry').checked = settings.autoRetry !== false;
+                document.getElementById('retryCount').value = settings.retryCount || '3';
+            }
+        }
+
+        // 页面加载时加载设置
+        document.addEventListener('DOMContentLoaded', loadSettings);
+
+        // API预设管理功能
+        document.addEventListener('DOMContentLoaded', function() {
+            initPresetManager();
+        });
+
+        function initPresetManager() {
+            const presetSelector = document.getElementById('presetSelector');
+            const presetConfigs = document.getElementById('presetConfigs');
+            const applyPresetBtn = document.getElementById('applyPreset');
+            const saveCurrentAsPresetBtn = document.getElementById('saveCurrentAsPreset');
+            const createNewPresetBtn = document.getElementById('createNewPreset');
+            const newPresetNameInput = document.getElementById('newPresetName');
+
+            // 预设数据
+            const defaultPresets = {
+                custom: { name: "自定义配置", url: "", key: "", isCustom: true },
+                preset1: { name: "OpenAI官方", url: "https://api.openai.com/v1", key: "", description: "官方API" },
+                preset2: { name: "国内代理1", url: "https://api.aimlapi.com/v1", key: "", description: "稳定代理" },
+                preset3: { name: "国内代理2", url: "https://chatgpt.proxy/v1", key: "", description: "高速代理" }
+            };
+
+            // 加载保存的预设
+            function loadPresets() {
+                const savedPresets = localStorage.getItem('apiPresets');
+                if (savedPresets) {
+                    const presets = JSON.parse(savedPresets);
+                    Object.assign(defaultPresets, presets);
+                    updatePresetSelector();
+                }
+            }
+
+            // 更新预设选择器
+            function updatePresetSelector() {
+                presetSelector.innerHTML = '<option value="custom">自定义配置</option>';
+                
+                Object.keys(defaultPresets).forEach(presetId => {
+                    if (presetId !== 'custom') {
+                        const preset = defaultPresets[presetId];
+                        const option = document.createElement('option');
+                        option.value = presetId;
+                        option.textContent = preset.name;
+                        if (preset.description) {
+                            option.textContent += ` (${preset.description})`;
+                        }
+                        presetSelector.appendChild(option);
+                    }
+                });
+            }
+
+            // 显示当前预设配置
+            function showPresetConfig(presetId) {
+                // 隐藏所有预设配置
+                document.querySelectorAll('.preset-config').forEach(config => {
+                    config.style.display = 'none';
+                });
+                
+                // 显示选中的预设配置
+                const selectedConfig = document.querySelector(`.preset-config[data-preset="${presetId}"]`);
+                if (selectedConfig) {
+                    selectedConfig.style.display = 'block';
+                }
+                
+                // 如果是自定义配置，隐藏预设配置区域
+                if (presetId === 'custom') {
+                    presetConfigs.style.display = 'none';
+                } else {
+                    presetConfigs.style.display = 'block';
+                }
+            }
+
+            // 应用预设
+            function applyPreset(presetId) {
+                const preset = defaultPresets[presetId];
+                if (preset) {
+                    document.getElementById('apiUrl').value = preset.url;
+                    document.getElementById('apiKey').value = preset.key || '';
+                    
+                    // 显示成功提示
+                    showToast(`已应用预设: ${preset.name}`);
+                }
+            }
+
+            // 保存当前配置为预设
+            function saveCurrentAsPreset() {
+                const currentPresetId = presetSelector.value;
+                if (currentPresetId === 'custom') {
+                    alert('请先选择一个预设或创建新预设');
+                    return;
+                }
+
+                const currentUrl = document.getElementById('apiUrl').value;
+                const currentKey = document.getElementById('apiKey').value;
+
+                defaultPresets[currentPresetId].url = currentUrl;
+                defaultPresets[currentPresetId].key = currentKey;
+
+                // 保存到localStorage
+                localStorage.setItem('apiPresets', JSON.stringify(defaultPresets));
+                
+                showToast(`预设已更新: ${defaultPresets[currentPresetId].name}`);
+            }
+
+            // 创建新预设
+            function createNewPreset() {
+                const name = newPresetNameInput.value.trim();
+                if (!name) {
+                    alert('请输入预设名称');
+                    return;
+                }
+
+                const newPresetId = 'preset_' + Date.now();
+                const currentUrl = document.getElementById('apiUrl').value;
+                const currentKey = document.getElementById('apiKey').value;
+
+                defaultPresets[newPresetId] = {
+                    name: name,
+                    url: currentUrl,
+                    key: currentKey,
+                    description: '自定义预设'
+                };
+
+                // 保存到localStorage
+                localStorage.setItem('apiPresets', JSON.stringify(defaultPresets));
+                
+                // 更新选择器
+                updatePresetSelector();
+                
+                // 选中新预设
+                presetSelector.value = newPresetId;
+                showPresetConfig(newPresetId);
+                
+                // 清空输入框
+                newPresetNameInput.value = '';
+                
+                showToast(`已创建新预设: ${name}`);
+            }
+
+            // 显示提示信息
+            function showToast(message) {
+                // 创建提示元素
+                let toast = document.getElementById('presetToast');
+                if (!toast) {
+                    toast = document.createElement('div');
+                    toast.id = 'presetToast';
+                    toast.style.cssText = `
+                        position: fixed;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        background: rgba(0,0,0,0.8);
+                        color: white;
+                        padding: 12px 20px;
+                        border-radius: 8px;
+                        z-index: 1000;
+                        font-size: 14px;
+                        transition: opacity 0.3s;
+                    `;
+                    document.body.appendChild(toast);
+                }
+                
+                toast.textContent = message;
+                toast.style.opacity = '1';
+                
+                // 2秒后隐藏
+                setTimeout(() => {
+                    toast.style.opacity = '0';
+                }, 2000);
+            }
+
+            // 事件监听
+            presetSelector.addEventListener('change', function() {
+                const presetId = this.value;
+                showPresetConfig(presetId);
+                
+                // 如果是预设（非自定义），自动填充数据但不应用
+                if (presetId !== 'custom') {
+                    const preset = defaultPresets[presetId];
+                    const presetUrlInput = document.querySelector(`.preset-config[data-preset="${presetId}"] .preset-api-url`);
+                    const presetKeyInput = document.querySelector(`.preset-config[data-preset="${presetId}"] .preset-api-key`);
+                    
+                    if (presetUrlInput) presetUrlInput.value = preset.url;
+                    if (presetKeyInput) presetKeyInput.value = preset.key || '';
+                }
+            });
+
+            applyPresetBtn.addEventListener('click', function() {
+                const presetId = presetSelector.value;
+                if (presetId !== 'custom') {
+                    applyPreset(presetId);
+                }
+            });
+
+            saveCurrentAsPresetBtn.addEventListener('click', saveCurrentAsPreset);
+            createNewPresetBtn.addEventListener('click', createNewPreset);
+
+            // 初始化
+            loadPresets();
+            showPresetConfig('custom'); // 默认显示自定义配置
+        }
+
+        // 模型管理功能
+        document.addEventListener('DOMContentLoaded', function() {
+            initModelManager();
+        });
+
+        function initModelManager() {
+            const modelList = document.getElementById('modelList');
+            const refreshModelsBtn = document.getElementById('refreshModels');
+            const downloadModelBtn = document.getElementById('downloadModel');
+            const addCustomModelBtn = document.getElementById('addCustomModel');
+            const customModelName = document.getElementById('customModelName');
+            const customModelId = document.getElementById('customModelId');
+            const downloadProgressContainer = document.getElementById('downloadProgressContainer');
+            const downloadingModel = document.getElementById('downloadingModel');
+            const downloadPercent = document.getElementById('downloadPercent');
+            const progressFill = document.getElementById('progressFill');
+            const cancelDownloadBtn = document.getElementById('cancelDownload');
+
+            let selectedModel = null;
+            let isDownloading = false;
+            let downloadProgress = 0;
+
+            // 默认模型列表
+            const defaultModels = [
+                { id: 'gpt-4', name: 'GPT-4', downloaded: true },
+                { id: 'gpt-3.5-turbo', name: 'GPT-3.5 Turbo', downloaded: true },
+                { id: 'claude-3', name: 'Claude 3', downloaded: false },
+                { id: 'llama-2-70b', name: 'Llama 2 70B', downloaded: false },
+                { id: 'mistral-7b', name: 'Mistral 7B', downloaded: false },
+                { id: 'codellama-34b', name: 'CodeLlama 34B', downloaded: false }
+            ];
+
+            // 加载模型数据
+            function loadModels() {
+                const savedModels = localStorage.getItem('modelList');
+                if (savedModels) {
+                    const models = JSON.parse(savedModels);
+                    renderModelList(models);
+                } else {
+                    renderModelList(defaultModels);
+                    saveModels(defaultModels);
+                }
+            }
+
+            // 保存模型数据
+            function saveModels(models) {
+                localStorage.setItem('modelList', JSON.stringify(models));
+            }
+
+            // 渲染模型列表
+            function renderModelList(models) {
+                modelList.innerHTML = '';
+                
+                models.forEach(model => {
+                    const modelItem = document.createElement('div');
+                    modelItem.className = `model-item ${model.downloaded ? 'available' : 'not-downloaded'}`;
+                    if (selectedModel && selectedModel.id === model.id) {
+                        modelItem.classList.add('selected');
+                    }
+                    
+                    modelItem.innerHTML = `
+                        <div class="model-info">
+                            <div class="model-name">${model.name}</div>
+                            <div class="model-id">${model.id}</div>
+                        </div>
+                        <div class="model-status ${model.downloaded ? 'available' : 'not-downloaded'}">
+                            ${model.downloaded ? '已下载' : '未下载'}
+                        </div>
+                    `;
+                    
+                    modelItem.addEventListener('click', () => {
+                        selectModel(model);
+                    });
+                    
+                    modelList.appendChild(modelItem);
+                });
+            }
+
+            // 选择模型
+            function selectModel(model) {
+                selectedModel = model;
+                
+                // 更新UI选中状态
+                document.querySelectorAll('.model-item').forEach(item => {
+                    item.classList.remove('selected');
+                });
+                
+                event.currentTarget.classList.add('selected');
+                
+                // 更新下载按钮状态
+                downloadModelBtn.disabled = model.downloaded;
+                downloadModelBtn.textContent = model.downloaded ? '✅ 已下载' : '⬇️ 下载此模型';
+            }
+
+            // 刷新模型列表
+            function refreshModels() {
+                showToast('正在刷新模型列表...');
+                
+                // 模拟API调用获取最新模型列表
+                setTimeout(() => {
+                    const updatedModels = [
+                        ...defaultModels,
+                        { id: 'new-model-1', name: '最新模型 v1.0', downloaded: false },
+                        { id: 'new-model-2', name: '最新模型 v2.0', downloaded: false }
+                    ];
+                    
+                    renderModelList(updatedModels);
+                    saveModels(updatedModels);
+                    showToast('模型列表已更新！');
+                }, 1500);
+            }
+
+            // 下载模型
+            function downloadModel() {
+                if (!selectedModel || selectedModel.downloaded || isDownloading) {
+                    return;
+                }
+
+                isDownloading = true;
+                downloadProgress = 0;
+                
+                // 显示下载进度
+                downloadProgressContainer.style.display = 'block';
+                downloadingModel.textContent = selectedModel.name;
+                updateProgress(0);
+                
+                // 模拟下载过程
+                const downloadInterval = setInterval(() => {
+                    downloadProgress += Math.random() * 10;
+                    if (downloadProgress >= 100) {
+                        downloadProgress = 100;
+                        clearInterval(downloadInterval);
+                        downloadComplete();
+                    }
+                    updateProgress(downloadProgress);
+                }, 200);
+                
+                // 保存下载进度引用，用于取消
+                selectedModel.downloadInterval = downloadInterval;
+            }
+
+            // 更新下载进度
+            function updateProgress(percent) {
+                downloadPercent.textContent = `${Math.round(percent)}%`;
+                progressFill.style.width = `${percent}%`;
+            }
+
+            // 下载完成
+            function downloadComplete() {
+                isDownloading = false;
+                
+                // 更新模型状态
+                const models = JSON.parse(localStorage.getItem('modelList') || '[]');
+                const updatedModels = models.map(model => {
+                    if (model.id === selectedModel.id) {
+                        return { ...model, downloaded: true };
+                    }
+                    return model;
+                });
+                
+                saveModels(updatedModels);
+                renderModelList(updatedModels);
+                
+                // 隐藏进度条
+                setTimeout(() => {
+                    downloadProgressContainer.style.display = 'none';
+                }, 2000);
+                
+                showToast(`模型 "${selectedModel.name}" 下载完成！`);
+            }
+
+            // 取消下载
+            function cancelDownload() {
+                if (selectedModel && selectedModel.downloadInterval) {
+                    clearInterval(selectedModel.downloadInterval);
+                }
+                
+                isDownloading = false;
+                downloadProgressContainer.style.display = 'none';
+                showToast('下载已取消');
+            }
+
+            // 添加自定义模型
+            function addCustomModel() {
+                const name = customModelName.value.trim();
+                const id = customModelId.value.trim();
+                
+                if (!name || !id) {
+                    alert('请输入模型名称和ID');
+                    return;
+                }
+
+                const models = JSON.parse(localStorage.getItem('modelList') || '[]');
+                const newModel = {
+                    id: id,
+                    name: name,
+                    downloaded: false
+                };
+                
+                models.push(newModel);
+                saveModels(models);
+                renderModelList(models);
+                
+                // 清空输入框
+                customModelName.value = '';
+                customModelId.value = '';
+                
+                showToast(`自定义模型 "${name}" 已添加`);
+            }
+
+            // 事件监听
+            refreshModelsBtn.addEventListener('click', refreshModels);
+            downloadModelBtn.addEventListener('click', downloadModel);
+            addCustomModelBtn.addEventListener('click', addCustomModel);
+            cancelDownloadBtn.addEventListener('click', cancelDownload);
+
+            // 初始化
+            loadModels();
+        }
+
+        // 左滑删除功能
+        function initChatDelete() {
+            const chatList = document.getElementById('chatList');
+            const deleteModal = document.getElementById('deleteModal');
+            const cancelDeleteBtn = document.getElementById('cancelDelete');
+            const confirmDeleteBtn = document.getElementById('confirmDelete');
+            
+            let startX = 0;
+            let currentX = 0;
+            let isSwiping = false;
+            let currentChatItem = null;
+            const swipeThreshold = 60; // 滑动阈值
+
+            // 检查空状态
+            function checkEmptyState() {
+                const chatList = document.getElementById('chatList');
+                const emptyState = document.getElementById('emptyState');
+                const chatItems = chatList.querySelectorAll('.chat-item');
+                
+                if (chatItems.length === 0) {
+                    chatList.classList.add('empty');
+                    emptyState.classList.add('show');
+                } else {
+                    chatList.classList.remove('empty');
+                    emptyState.classList.remove('show');
+                }
+            }
+
+            // 显示删除确认弹窗
+            function showDeleteModal(chatItem) {
+                currentChatItem = chatItem;
+                deleteModal.classList.add('show');
+            }
+
+            // 隐藏删除确认弹窗
+            function hideDeleteModal() {
+                deleteModal.classList.remove('show');
+                resetSwipe();
+            }
+
+            // 重置滑动状态
+            function resetSwipe() {
+                document.querySelectorAll('.chat-item').forEach(item => {
+                    item.classList.remove('swiped');
+                    item.querySelector('.chat-item-content').style.transform = 'translateX(0)';
+                });
+                currentChatItem = null;
+            }
+
+            // 删除聊天
+            function deleteChat() {
+                if (currentChatItem) {
+                    // 获取聊天项高度用于动画
+                    const itemHeight = currentChatItem.offsetHeight;
+                    
+                    // 添加删除动画
+                    currentChatItem.style.cssText = `
+                        transition: all 0.3s ease;
+                        transform: translateX(-100%);
+                        opacity: 0;
+                        height: ${itemHeight}px;
+                        margin: 0;
+                        padding: 12px 15px;
+                        overflow: hidden;
+                    `;
+                    
+                    setTimeout(() => {
+                        currentChatItem.style.height = '0';
+                        currentChatItem.style.margin = '0';
+                        currentChatItem.style.padding = '0';
+                    }, 50);
+                    
+                    setTimeout(() => {
+                        if (currentChatItem && currentChatItem.parentNode) {
+                            currentChatItem.remove();
+                            showToast('聊天已删除');
+                            
+                            // 检查是否还有聊天项
+                            checkEmptyState();
+                        }
+                    }, 350);
+                }
+                hideDeleteModal();
+            }
+
+            // 触摸开始
+            function handleTouchStart(e) {
+                const chatItem = e.target.closest('.chat-item');
+                if (!chatItem) return;
+
+                // 如果已经有其他项处于滑动状态，先重置
+                const swipedItem = document.querySelector('.chat-item.swiped');
+                if (swipedItem && swipedItem !== chatItem) {
+                    swipedItem.classList.remove('swiped');
+                    swipedItem.querySelector('.chat-item-content').style.transform = 'translateX(0)';
+                }
+
+                startX = e.touches[0].clientX;
+                currentChatItem = chatItem;
+                isSwiping = true;
+                
+                // 重置transform
+                chatItem.querySelector('.chat-item-content').style.transition = 'none';
+            }
+
+            // 触摸移动
+            function handleTouchMove(e) {
+                if (!isSwiping || !currentChatItem) return;
+
+                currentX = e.touches[0].clientX;
+                const diffX = startX - currentX;
+
+                // 只允许向左滑动
+                if (diffX > 0) {
+                    const translateX = Math.min(diffX, 80); // 最大滑动80px
+                    currentChatItem.querySelector('.chat-item-content').style.transform = `translateX(-${translateX}px)`;
+                    
+                    // 显示/隐藏删除按钮
+                    if (diffX > swipeThreshold) {
+                        currentChatItem.classList.add('swiped');
+                    } else {
+                        currentChatItem.classList.remove('swiped');
+                    }
+                }
+            }
+
+            // 触摸结束
+            function handleTouchEnd(e) {
+                if (!isSwiping || !currentChatItem) return;
+
+                const diffX = startX - currentX;
+                
+                // 添加过渡效果
+                currentChatItem.querySelector('.chat-item-content').style.transition = 'transform 0.3s ease';
+                
+                if (diffX > swipeThreshold) {
+                    // 滑动足够距离，保持删除按钮可见
+                    currentChatItem.classList.add('swiped');
+                    currentChatItem.querySelector('.chat-item-content').style.transform = 'translateX(-80px)';
+                } else {
+                    // 滑动距离不够，恢复原状
+                    currentChatItem.querySelector('.chat-item-content').style.transform = 'translateX(0)';
+                    currentChatItem.classList.remove('swiped');
+                }
+
+                isSwiping = false;
+                
+                // 重置触摸标识
+                currentChatItem = null;
+            }
+
+            // 鼠标事件（用于桌面测试）
+            function handleMouseDown(e) {
+                const chatItem = e.target.closest('.chat-item');
+                if (!chatItem) return;
+
+                const swipedItem = document.querySelector('.chat-item.swiped');
+                if (swipedItem && swipedItem !== chatItem) {
+                    swipedItem.classList.remove('swiped');
+                    swipedItem.querySelector('.chat-item-content').style.transform = 'translateX(0)';
+                }
+
+                startX = e.clientX;
+                currentChatItem = chatItem;
+                isSwiping = true;
+
+                // 重置transform
+                chatItem.querySelector('.chat-item-content').style.transition = 'none';
+
+                document.addEventListener('mousemove', handleMouseMove);
+                document.addEventListener('mouseup', handleMouseUp);
+            }
+
+            function handleMouseMove(e) {
+                if (!isSwiping || !currentChatItem) return;
+
+                currentX = e.clientX;
+                const diffX = startX - currentX;
+
+                if (diffX > 0) {
+                    const translateX = Math.min(diffX, 80);
+                    currentChatItem.querySelector('.chat-item-content').style.transform = `translateX(-${translateX}px)`;
+                    
+                    if (diffX > swipeThreshold) {
+                        currentChatItem.classList.add('swiped');
+                    } else {
+                        currentChatItem.classList.remove('swiped');
+                    }
+                }
+            }
+
+            function handleMouseUp() {
+                if (!isSwiping || !currentChatItem) return;
+
+                const diffX = startX - currentX;
+                
+                // 添加过渡效果
+                currentChatItem.querySelector('.chat-item-content').style.transition = 'transform 0.3s ease';
+                
+                if (diffX > swipeThreshold) {
+                    currentChatItem.classList.add('swiped');
+                    currentChatItem.querySelector('.chat-item-content').style.transform = 'translateX(-80px)';
+                } else {
+                    currentChatItem.querySelector('.chat-item-content').style.transform = 'translateX(0)';
+                    currentChatItem.classList.remove('swiped');
+                }
+
+                isSwiping = false;
+                document.removeEventListener('mousemove', handleMouseMove);
+                document.removeEventListener('mouseup', handleMouseUp);
+            }
+
+            // 绑定事件
+            chatList.addEventListener('touchstart', handleTouchStart);
+            chatList.addEventListener('touchmove', handleTouchMove);
+            chatList.addEventListener('touchend', handleTouchEnd);
+
+            chatList.addEventListener('mousedown', handleMouseDown);
+
+            // 点击删除按钮
+            chatList.addEventListener('click', function(e) {
+                if (e.target.classList.contains('delete-action')) {
+                    const chatItem = e.target.closest('.chat-item');
+                    if (chatItem) {
+                        showDeleteModal(chatItem);
+                    }
+                    e.stopPropagation();
+                }
+            });
+
+            // 弹窗按钮事件
+            cancelDeleteBtn.addEventListener('click', hideDeleteModal);
+            confirmDeleteBtn.addEventListener('click', deleteChat);
+
+            // 点击其他地方关闭弹窗
+            deleteModal.addEventListener('click', function(e) {
+                if (e.target === deleteModal) {
+                    hideDeleteModal();
+                }
+            });
+
+            // 点击聊天列表外部时重置所有滑动状态
+            document.addEventListener('click', function(e) {
+                if (!e.target.closest('.chat-item')) {
+                    resetSwipe();
+                }
+            });
+
+            // 初始化检查空状态
+            checkEmptyState();
+        }
+
+        // 编辑资料功能
+        function initProfileEdit() {
+            const editModal = document.getElementById('editModal');
+            const editProfileBtn = document.getElementById('editProfileBtn');
+            const closeEditModal = document.getElementById('closeEditModal');
+            const cancelEdit = document.getElementById('cancelEdit');
+            const saveEdit = document.getElementById('saveEdit');
+            const uploadAvatarBtn = document.getElementById('uploadAvatarBtn');
+            const avatarInput = document.getElementById('avatarInput');
+            const editNameInput = document.getElementById('editNameInput');
+            const editIdInput = document.getElementById('editIdInput');
+            const editBioInput = document.getElementById('editBioInput');
+            
+            let selectedAvatarFile = null;
+
+            // 显示编辑弹窗
+            function showEditModal() {
+                // 加载当前用户数据
+                loadUserData();
+                editModal.classList.add('show');
+            }
+
+            // 隐藏编辑弹窗
+            function hideEditModal() {
+                editModal.classList.remove('show');
+                selectedAvatarFile = null;
+            }
+
+            // 加载用户数据
+            function loadUserData() {
+                const userData = getUserData();
+                
+                editNameInput.value = userData.name || '微信用户';
+                editIdInput.value = userData.id || 'wechat12345';
+                editBioInput.value = userData.bio || '';
+                
+                // 更新头像预览
+                updateAvatarPreview(userData.avatar);
+            }
+
+            // 获取用户数据
+            function getUserData() {
+                return JSON.parse(localStorage.getItem('userProfile') || '{}');
+            }
+
+            // 保存用户数据
+            function saveUserData(data) {
+                localStorage.setItem('userProfile', JSON.stringify(data));
+                updateProfileDisplay();
+            }
+
+            // 更新界面显示
+            function updateProfileDisplay() {
+                const userData = getUserData();
+                
+                // 更新名字
+                document.getElementById('userName').textContent = userData.name || '微信用户';
+                
+                // 更新微信号
+                document.getElementById('userId').textContent = `微信号: ${userData.id || 'wechat12345'}`;
+                
+                // 更新头像
+                updateMainAvatar(userData.avatar);
+            }
+
+            // 更新主头像
+            function updateMainAvatar(avatarData) {
+                const avatarImage = document.getElementById('avatarImage');
+                const avatarText = document.getElementById('avatarText');
+                
+                if (avatarData) {
+                    avatarImage.src = avatarData;
+                    avatarImage.style.display = 'block';
+                    avatarText.style.display = 'none';
+                } else {
+                    avatarImage.style.display = 'none';
+                    avatarText.style.display = 'block';
+                }
+            }
+
+            // 更新头像预览
+            function updateAvatarPreview(avatarData) {
+                const previewImage = document.getElementById('previewImage');
+                const previewText = document.getElementById('previewText');
+                
+                if (avatarData) {
+                    previewImage.src = avatarData;
+                    previewImage.style.display = 'block';
+                    previewText.style.display = 'none';
+                } else {
+                    previewImage.style.display = 'none';
+                    previewText.style.display = 'block';
+                }
+            }
+
+            // 处理头像上传
+            function handleAvatarUpload(file) {
+                if (!file || !file.type.startsWith('image/')) {
+                    showToast('请选择图片文件');
+                    return;
+                }
+
+                // 检查文件大小（限制2MB）
+                if (file.size > 2 * 1024 * 1024) {
+                    showToast('图片大小不能超过2MB');
+                    return;
+                }
+
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    // 简单裁剪为正方形（实际项目中可以使用更复杂的裁剪库）
+                    const img = new Image();
+                    img.onload = function() {
+                        const canvas = document.createElement('canvas');
+                        const size = Math.min(img.width, img.height);
+                        canvas.width = 200;
+                        canvas.height = 200;
+                        
+                        const ctx = canvas.getContext('2d');
+                        // 居中裁剪
+                        const sourceX = (img.width - size) / 2;
+                        const sourceY = (img.height - size) / 2;
+                        
+                        ctx.drawImage(img, sourceX, sourceY, size, size, 0, 0, 200, 200);
+                        
+                        const croppedDataUrl = canvas.toDataURL('image/jpeg', 0.8);
+                        updateAvatarPreview(croppedDataUrl);
+                        selectedAvatarFile = croppedDataUrl;
+                        
+                        showToast('头像上传成功');
+                    };
+                    img.src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
+
+            // 保存编辑
+            function saveProfile() {
+                const name = editNameInput.value.trim();
+                const id = editIdInput.value.trim();
+                const bio = editBioInput.value.trim();
+                
+                if (!name) {
+                    showToast('请输入名字');
+                    return;
+                }
+                
+                if (!id) {
+                    showToast('请输入微信号');
+                    return;
+                }
+                
+                // 检查微信号格式（字母、数字、下划线）
+                if (!/^[a-zA-Z0-9_]+$/.test(id)) {
+                    showToast('微信号只能包含字母、数字和下划线');
+                    return;
+                }
+
+                const userData = {
+                    name: name,
+                    id: id,
+                    bio: bio,
+                    avatar: selectedAvatarFile || getUserData().avatar
+                };
+
+                saveUserData(userData);
+                hideEditModal();
+                showToast('资料更新成功');
+            }
+
+            // 事件监听
+            editProfileBtn.addEventListener('click', showEditModal);
+            closeEditModal.addEventListener('click', hideEditModal);
+            cancelEdit.addEventListener('click', hideEditModal);
+            saveEdit.addEventListener('click', saveProfile);
+            
+            uploadAvatarBtn.addEventListener('click', () => {
+                avatarInput.click();
+            });
+            
+            avatarInput.addEventListener('change', (e) => {
+                if (e.target.files && e.target.files[0]) {
+                    handleAvatarUpload(e.target.files[0]);
+                }
+            });
+
+            // 点击弹窗外部关闭
+            editModal.addEventListener('click', (e) => {
+                if (e.target === editModal) {
+                    hideEditModal();
+                }
+            });
+
+            // 初始化显示
+            updateProfileDisplay();
+        }
+
+        // 钱包功能 - 简洁版
+        function initWallet() {
+            const rechargeBtn = document.getElementById('rechargeBtn');
+            const withdrawBtn = document.getElementById('withdrawBtn');
+            const walletDetailBtn = document.getElementById('walletDetailBtn');
+            const rechargeModal = document.getElementById('rechargeModal');
+            const closeRechargeModal = document.getElementById('closeRechargeModal');
+            const cancelRecharge = document.getElementById('cancelRecharge');
+            const confirmRecharge = document.getElementById('confirmRecharge');
+            const amountInput = document.getElementById('amountInput');
+            const quickAmounts = document.querySelectorAll('.quick-amount');
+            const balanceAmount = document.getElementById('balanceAmount');
+
+            // 显示充值弹窗
+            function showRechargeModal() {
+                amountInput.value = '';
+                quickAmounts.forEach(amount => amount.classList.remove('active'));
+                rechargeModal.classList.add('show');
+                setTimeout(() => amountInput.focus(), 300);
+            }
+
+            // 隐藏充值弹窗
+            function hideRechargeModal() {
+                rechargeModal.classList.remove('show');
+            }
+
+            // 获取余额
+            function getBalance() {
+                return parseFloat(localStorage.getItem('walletBalance') || '0.00');
+            }
+
+            // 更新余额显示
+            function updateBalanceDisplay() {
+                const balance = getBalance();
+                balanceAmount.textContent = balance.toFixed(2);
+            }
+
+            // 快速金额选择
+            function handleQuickAmountClick(e) {
+                const amount = e.target.getAttribute('data-amount');
+                amountInput.value = amount;
+                
+                // 更新选中状态
+                quickAmounts.forEach(amountEl => amountEl.classList.remove('active'));
+                e.target.classList.add('active');
+            }
+
+            // 充值确认
+            function confirmRechargeAction() {
+                const amount = parseFloat(amountInput.value);
+                
+                if (!amount || amount <= 0) {
+                    showToast('请输入有效的充值金额');
+                    return;
+                }
+
+                if (amount > 100000) {
+                    showToast('单次充值金额不能超过100,000元');
+                    return;
+                }
+
+                const currentBalance = getBalance();
+                const newBalance = currentBalance + amount;
+                
+                localStorage.setItem('walletBalance', newBalance.toFixed(2));
+                updateBalanceDisplay();
+                hideRechargeModal();
+                showToast(`充值成功！已充值 ¥${amount.toFixed(2)}`);
+            }
+
+            // 提现功能
+            function handleWithdraw() {
+                const currentBalance = getBalance();
+                
+                if (currentBalance <= 0) {
+                    showToast('余额不足，无法提现');
+                    return;
+                }
+
+                if (confirm(`确定要提现 ¥${currentBalance.toFixed(2)} 吗？`)) {
+                    localStorage.setItem('walletBalance', '0.00');
+                    updateBalanceDisplay();
+                    showToast(`提现成功！已提现 ¥${currentBalance.toFixed(2)}`);
+                }
+            }
+
+            // 零钱明细
+            function showWalletDetail() {
+                showToast('零钱明细功能开发中...');
+            }
+
+            // 事件监听
+            rechargeBtn.addEventListener('click', showRechargeModal);
+            withdrawBtn.addEventListener('click', handleWithdraw);
+            walletDetailBtn.addEventListener('click', showWalletDetail);
+            closeRechargeModal.addEventListener('click', hideRechargeModal);
+            cancelRecharge.addEventListener('click', hideRechargeModal);
+            confirmRecharge.addEventListener('click', confirmRechargeAction);
+
+            quickAmounts.forEach(amount => {
+                amount.addEventListener('click', handleQuickAmountClick);
+            });
+
+            // 点击弹窗外部关闭
+            rechargeModal.addEventListener('click', (e) => {
+                if (e.target === rechargeModal) {
+                    hideRechargeModal();
+                }
+            });
+
+            // 输入框实时验证
+            amountInput.addEventListener('input', (e) => {
+                const value = e.target.value;
+                if (value && parseFloat(value) > 100000) {
+                    e.target.value = '100000';
+                }
+            });
+
+            // 初始化显示
+            updateBalanceDisplay();
+        }
+
+        // 初始化默认用户数据
+        function initDefaultUserData() {
+            const existingData = localStorage.getItem('userProfile');
+            if (!existingData) {
+                const defaultData = {
+                    name: '微信用户',
+                    id: 'wechat12345',
+                    bio: '',
+                    avatar: null
+                };
+                localStorage.setItem('userProfile', JSON.stringify(defaultData));
+            }
+        }
+
+        // 全局提示函数
+        function showToast(message) {
+            let toast = document.getElementById('globalToast');
+            if (!toast) {
+                toast = document.createElement('div');
+                toast.id = 'globalToast';
+                toast.style.cssText = `
+                    position: fixed;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    background: rgba(0,0,0,0.8);
+                    color: white;
+                    padding: 12px 20px;
+                    border-radius: 8px;
+                    z-index: 1000;
+                    font-size: 14px;
+                    transition: opacity 0.3s;
+                    opacity: 0;
+                `;
+                document.body.appendChild(toast);
+            }
+            
+            toast.textContent = message;
+            toast.style.opacity = '1';
+            
+            setTimeout(() => {
+                toast.style.opacity = '0';
+            }, 2000);
+        }
+
+        // 初始化所有功能
+        document.addEventListener('DOMContentLoaded', function() {
+            initDefaultUserData();
+            initProfileEdit();
+            initChatDelete();
+            initWallet();
+        });
+
+        // 禁止页面缩放
+        document.addEventListener('touchmove', (e) => {
+            if (e.touches.length > 1) {
+                e.preventDefault();
+            }
+        }, { passive: false });
+
+        // 防止双击缩放
+        let lastTouchEnd = 0;
+        document.addEventListener('touchend', function(event) {
+            const now = (new Date()).getTime();
+            if (now - lastTouchEnd <= 300) {
+                event.preventDefault();
+            }
+            lastTouchEnd = now;
+        }, false);
+    </script>
+
+<script>
+// Tab switching utility
+function showPage(id){
+    document.querySelectorAll('.content-page').forEach(function(p){
+        p.classList.remove('active');
+    });
+    var page = document.getElementById(id);
+    if(page) page.classList.add('active');
+
+    // update active nav
+    document.querySelectorAll('.wechat-bottom-nav .nav-item').forEach(function(n){
+        n.classList.remove('active');
+    });
+    var nav = document.querySelector('.wechat-bottom-nav .nav-item[data-tab="'+id.replace('-page','')+'"]');
+    if(nav) nav.classList.add('active');
+}
+
+// adapt data-tab values to page IDs
+document.querySelectorAll('.wechat-bottom-nav .nav-item').forEach(function(item){
+    item.addEventListener('click', function(e){
+        var tab = item.getAttribute('data-tab');
+        // ripple effect
+        var r = item.querySelector('.ripple');
+        if(r){
+            r.style.left = (e.offsetX - 5) + 'px';
+            r.style.top = (e.offsetY - 5) + 'px';
+            r.style.opacity = '1';
+            r.style.transform = 'scale(0)';
+            setTimeout(function(){ r.style.transform = 'scale(6)'; r.style.opacity='0'; }, 10);
+        }
+        // mapping: data-tab "chat" -> "chat-page", but our elements' ids are named chat-page, contacts-page, discover-page, me-page
+        var map = {chat:'chat-page', contacts:'contacts-page', discover:'discover-page', me:'me-page'};
+        var target = map[tab] || (tab+'-page');
+        showPage(target);
+    });
+});
+
+// expose showPage by name used elsewhere (if other code calls showPage with 'chat' etc.)
+function showPageByTab(tab){
+    var map = {chat:'chat-page', contacts:'contacts-page', discover:'discover-page', me:'me-page'};
+    showPage(map[tab] || (tab+'-page'));
+}
+
+// on load ensure chat-page visible
+document.addEventListener('DOMContentLoaded', function(){
+    // if chat-page exists, ensure active
+    if(document.getElementById('chat-page')) showPage('chat-page');
+});
+</script>
+
+</body>
+</html>
